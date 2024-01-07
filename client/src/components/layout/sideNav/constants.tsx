@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { LuUser } from "react-icons/lu";
 
 import { SideNavItem } from './types';
 
@@ -9,13 +10,13 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <Icon icon="lucide:home" width="16" height="16" />,
   },
   {
-    title: 'Projects',
-    path: '/projects',
-    icon: <Icon icon="lucide:folder" width="16" height="16" />,
+    title: 'Human Resource',
+    path: '/humanResource/',
+    icon: <LuUser width="16" height="16" />,
     submenu: true,
     subMenuItems: [
-      { title: 'All', path: '/projects' },
-      { title: 'Web Design', path: '/projects/web-design' },
+      { title: 'Attendance', path: '/humanResource/attendance' },
+      { title: 'Onboarding', path: '/humanResource/onboarding' },
       { title: 'Graphic Design', path: '/projects/graphic-design' },
     ],
   },
