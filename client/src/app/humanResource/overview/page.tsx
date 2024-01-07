@@ -8,7 +8,7 @@ import {
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
 
-const Attendance = () => {
+const Overview = () => {
   return (
     <div>
       <div className="text-xs m-2">
@@ -25,7 +25,7 @@ const Attendance = () => {
               <BreadcrumbLink href="/humanResource">Human Resource</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink href="humanResource/attendance">Attendance</BreadcrumbLink>
+              <BreadcrumbLink href="/humanResource">Overview</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
         </div>
@@ -33,4 +33,4 @@ const Attendance = () => {
   );
 };
 
-export default Attendance;
+export default Overview;
