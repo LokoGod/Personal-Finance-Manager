@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react'
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-} from "@chakra-ui/react";
-import { IoChevronForward } from "react-icons/io5";
-import { FaHouseChimney } from "react-icons/fa6";
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbSeparator,
+  } from "@chakra-ui/react";
+  import { IoChevronForward } from "react-icons/io5";
+  import { FaHouseChimney } from "react-icons/fa6";
 
-const Attendance = () => {
+const DynamicBreadcrumb = () => {
   return (
     <div>
-      <div className="text-xs m-2">
+        <div className="text-xs m-2">
           <Breadcrumb
             spacing="8px"
             separator={<IoChevronForward color="gray.500" />}
@@ -30,7 +30,7 @@ const Attendance = () => {
           </Breadcrumb>
         </div>
     </div>
-  );
-};
+  )
+}
 
-export default Attendance;
+export default DynamicBreadcrumb

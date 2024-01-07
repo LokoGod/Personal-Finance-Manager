@@ -15,6 +15,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <LuUser width="16" height="16" />,
     submenu: true,
     subMenuItems: [
+      { title: 'Overview', path: '/humanResource/overview' },
       { title: 'Attendance', path: '/humanResource/attendance' },
       { title: 'Onboarding', path: '/humanResource/onboarding' },
       { title: 'Graphic Design', path: '/projects/graphic-design' },
