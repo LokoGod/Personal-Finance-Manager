@@ -1,6 +1,6 @@
 import React from "react";
 
-import OverviewTable from "@/components/tables/dataTables/overviewTable";
+import OverviewTable from "@/components/tables/dataTables/OverviewTable";
 
 import {
   Breadcrumb,
