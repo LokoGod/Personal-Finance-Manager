@@ -1,8 +1,7 @@
 import React from "react";
 
 import OverviewTable from "@/components/tables/dataTables/OverviewTable";
-import { columns } from "@/components/tables/dataTables/columns"
-import { DataTable } from "@/components/tables/dataTables/data-table"
+
 
 import {
   Breadcrumb,
@@ -40,7 +39,7 @@ const Overview = () => {
         </Breadcrumb>
       </div>
 
-
+<DataTableDemo />
     </div>
   );
 };
