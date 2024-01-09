@@ -2,7 +2,6 @@ import React from "react";
 
 import OverviewTable from "@/components/tables/dataTables/OverviewTable";
 
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,10 +11,26 @@ import {
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
 import { DataTableDemo } from "@/components/tables/dataTables/tableDemo";
+import { DataTable } from "@/components/tables/dataTables/data-table";
+import { Payment, columns } from "@/components/tables/dataTables/overViewTable/columns";
+import { attendanceColumn } from "@/components/tables/dataTables/attendanceTable/attendanceColumn";
 
+async function getData(): Promise<Payment[]> {
+  // Fetch data from your API here.
+  return [
+    {
+      id: "728ed52f",
+      amount: 100,
+      status: "pending",
+      email: "m@example.com",
+    },
+    // ...
+  ];
+}
 
-const Overview = () => {
-  
+const Overview = async () => {
+  const data = await getData();
+
   return (
     <div>
       <div className="text-xs mt-1">
@@ -39,7 +54,7 @@ const Overview = () => {
         </Breadcrumb>
       </div>
 
-<DataTableDemo />
+      <DataTable columns={columns} data={data} />
     </div>
   );
 };
