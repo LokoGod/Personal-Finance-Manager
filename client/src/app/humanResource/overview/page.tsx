@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
+import { DataTableDemo } from "@/components/tables/dataTables/tableDemo";
 
 const Overview = () => {
   return (
@@ -35,7 +36,9 @@ const Overview = () => {
         </Breadcrumb>
       </div>
 
-      <OverviewTable />
+<DataTableDemo />
+
+
     </div>
   );
 };
