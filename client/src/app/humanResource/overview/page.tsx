@@ -1,7 +1,4 @@
 import React from "react";
-
-import OverviewTable from "@/components/tables/dataTables/OverviewTable";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,10 +7,11 @@ import {
 } from "@chakra-ui/react";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
-import { DataTableDemo } from "@/components/tables/dataTables/tableDemo";
 import { DataTable } from "@/components/tables/dataTables/data-table";
-import { Payment, columns } from "@/components/tables/dataTables/overViewTable/columns";
-import { attendanceColumn } from "@/components/tables/dataTables/attendanceTable/attendanceColumn";
+import {
+  Payment,
+  columns,
+} from "@/components/tables/dataTables/overViewTable/columns";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
