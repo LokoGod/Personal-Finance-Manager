@@ -56,7 +56,7 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
             </div>
 
             <div className={`${subMenuOpen ? "rotate-180" : ""} flex`}>
-              <Icon icon="lucide:chevron-down" width="24" height="24" />
+              <Icon icon="lucide:chevron-down" width="16" height="16" />
             </div>
           </button>
 
