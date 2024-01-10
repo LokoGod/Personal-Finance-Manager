@@ -66,7 +66,7 @@ const OverviewTable = () => {
   return (
     <div>
       <Card>
-        <Title>List of Swiss Federal Councillours</Title>
+        <Title>List of Swiss Councillours</Title>
         <Table className="mt-5">
           <TableHead>
             <TableRow>
