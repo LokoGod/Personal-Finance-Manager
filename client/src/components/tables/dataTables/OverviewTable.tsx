@@ -44,7 +44,7 @@ const data = [
   {
     name: "Karin Keller-Sutter",
     Role: "Federal Councillor",
-    departement: "The Federal Department of Finance (FDF)",
+    departement: "The Federal of Finance (FDF)",
     status: "active",
   },
   {
