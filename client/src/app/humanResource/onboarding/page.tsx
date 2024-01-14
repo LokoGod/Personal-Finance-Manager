@@ -1,10 +1,10 @@
+import React from "react";
+
 import { DataTable } from "@/components/tables/dataTables/data-table";
 import {
   Payment,
   columns,
 } from "@/components/tables/dataTables/overViewTable/columns";
-
-import { IoIosAdd } from "react-icons/io";
 
 import {
   Breadcrumb,
@@ -12,11 +12,30 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
 } from "@chakra-ui/react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+
+import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
-
-import React from "react";
-import { Button } from "@/components/ui/button";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -45,6 +64,7 @@ async function getData(): Promise<Payment[]> {
 
 const Onboarding = async () => {
   const data = await getData();
+
   return (
     <div>
       <div className="text-xs mb-2">
@@ -73,9 +93,25 @@ const Onboarding = async () => {
       <h2 className="text-3xl font-bold tracking-tight">Onboarding</h2>
 
       <div className="flex justify-end ">
-        <Button size={"sm"}>
-          <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
-        </Button>
+        <Dialog>
+          <DialogTrigger>
+            <Button size={"sm"}>
+              <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>New employee</DialogTitle>
+              <DialogDescription>
+                Make sure to add correct details :)
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="email">Email</Label>
+              <Input type="email" id="email" placeholder="Email" />
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <DataTable columns={columns} data={data} />
