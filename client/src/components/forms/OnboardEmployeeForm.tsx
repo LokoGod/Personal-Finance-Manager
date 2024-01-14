@@ -14,6 +14,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "../ui/card";
 import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
@@ -37,27 +39,55 @@ export function OnboardEmployeeForm() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div className="">
+      <Tabs defaultValue="employeeBasic">
+        <Card className="w-fit mb-2">
+        <TabsList>
+          <TabsTrigger value="employeeBasic">Basic Details</TabsTrigger>
+          <TabsTrigger value="compensation" disabled>
+            Compensation
+          </TabsTrigger>
+          <TabsTrigger value="timeoff" disabled>
+            Time off
+          </TabsTrigger>
+          <TabsTrigger value="documents" disabled>
+            Documents
+          </TabsTrigger>
+        </TabsList>
+        </Card>
+        <TabsContent value="employeeBasic">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="">
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Username</FormLabel>
+                    <FormControl>
+                      <Input placeholder="shadcn" {...field} />
+                    </FormControl>
+                    <FormDescription>
+                      This is your public display name.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              </div>
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </TabsContent>
+        <TabsContent value="compensation">
+          Change your password here.
+        </TabsContent>
+        <TabsContent value="timeoff">This is Time off</TabsContent>
+        <TabsContent value="documents">This isDocuments</TabsContent>
+      </Tabs>
+    </div>
   );
 }

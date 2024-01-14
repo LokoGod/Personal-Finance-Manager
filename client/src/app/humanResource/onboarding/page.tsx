@@ -37,6 +37,7 @@ import { Button } from "@/components/ui/button";
 import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
+import Link from "next/link";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -94,22 +95,11 @@ const Onboarding = async () => {
       <h2 className="text-3xl font-bold tracking-tight">Onboarding</h2>
 
       <div className="flex justify-end ">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button size={"sm"} >
-              <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>New employee</DialogTitle>
-              <DialogDescription>
-                Make sure to add correct details :)
-              </DialogDescription>
-            </DialogHeader>
-         <OnboardEmployeeForm/>
-          </DialogContent>
-        </Dialog>
+        <Button size={"sm"} asChild>
+          <Link href={"/humanResource/onboarding/addNewEmployee"}>
+            <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
+          </Link>
+        </Button>
       </div>
 
       <DataTable columns={columns} data={data} />
