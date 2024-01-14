@@ -1,6 +1,20 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
+import {
+  ColumnDef,
+} from "@tanstack/react-table"
+
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+import { RxDotsHorizontal } from "react-icons/rx";
 
 
 // This type is used to define the shape of our data.
@@ -12,6 +26,7 @@ export type Payment = {
   email: string
 }
 
+// Defining the clolumns
 export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
@@ -22,11 +37,46 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Email",
   },
   {
+    // formated the amount cell to display the dollar amount, also aligned the cell to the right.
     accessorKey: "amount",
-    header: "Amount",
+    header: () => <div className="text-right">Amount</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("amount"))
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount)
+ 
+      return <div className="text-right font-medium">{formatted}</div>
+    },
   },
   {
-    accessorKey: "options",
-    header: "",
-  }
+    // Added dropdown menu to rows
+    id: "actions",
+    cell: ({ row }) => {
+      const payment = row.original
+ 
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <RxDotsHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(payment.id)}
+            >
+              Copy payment ID
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>View payment details</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
+  },
 ]
