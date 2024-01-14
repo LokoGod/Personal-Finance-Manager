@@ -24,7 +24,7 @@ async function getData(): Promise<Payment[]> {
     {
       id: "728ed52f",
       amount: 100,
-      status: "pending", 
+      status: "pending",
       email: "m@example.com",
     },
     // ...
@@ -35,32 +35,36 @@ const Onboarding = async () => {
   const data = await getData();
   return (
     <div>
-      <div className="text-xs m-2">
-          <Breadcrumb
-            spacing="8px"
-            separator={<IoChevronForward color="gray.500" />}
-          >
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">
+      <div className="text-xs mb-2">
+        <Breadcrumb
+          spacing="8px"
+          separator={<IoChevronForward color="gray.500" />}
+        >
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">
               <FaHouseChimney />
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/humanResource">Human Resource</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="humanResource/onboarding">Onboarding</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-        </div>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/humanResource">
+              Human Resource
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="humanResource/onboarding">
+              Onboarding
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
 
+      <h2 className="text-3xl font-bold tracking-tight">Onboarding</h2>
 
       <div className="flex justify-end ">
-        <Button size={'sm'}>
+        <Button size={"sm"}>
           <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
         </Button>
       </div>
-
 
       <DataTable columns={columns} data={data} />
     </div>

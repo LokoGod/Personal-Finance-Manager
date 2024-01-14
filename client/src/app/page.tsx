@@ -58,17 +58,16 @@ const Home = () => {
             </Card>
           </div>
 
-<div className="mt-5">
-          <Card className="col-span-4">
+          <div className="mt-5">
+            <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Sales Chart</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
                 <LineSalesChart />
               </CardContent>
-          </Card>
+            </Card>
           </div>
-
         </TabsContent>
       </Tabs>
     </div>
