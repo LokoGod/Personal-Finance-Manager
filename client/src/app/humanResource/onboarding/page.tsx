@@ -5,6 +5,7 @@ import {
   Payment,
   columns,
 } from "@/components/tables/dataTables/overViewTable/columns";
+import { OnboardEmployeeForm } from "@/components/forms/OnboardEmployeeForm";
 
 import {
   Breadcrumb,
@@ -94,8 +95,8 @@ const Onboarding = async () => {
 
       <div className="flex justify-end ">
         <Dialog>
-          <DialogTrigger>
-            <Button size={"sm"}>
+          <DialogTrigger asChild>
+            <Button size={"sm"} >
               <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
             </Button>
           </DialogTrigger>
@@ -106,10 +107,7 @@ const Onboarding = async () => {
                 Make sure to add correct details :)
               </DialogDescription>
             </DialogHeader>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input type="email" id="email" placeholder="Email" />
-            </div>
+         <OnboardEmployeeForm/>
           </DialogContent>
         </Dialog>
       </div>
