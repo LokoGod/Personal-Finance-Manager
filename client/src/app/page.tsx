@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 import {
   Card,
   CardContent,
@@ -15,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HomeCardData from "@/components/visualizations/HomeCardData";
 import HomeBarChart from "@/components/visualizations/charts/HomeBarChart";
 import HomeTable from "@/components/visualizations/HomeTable";
-import AreaSalesChart from "@/components/visualizations/charts/AreaSalesChart";
+import LineSalesChart from "@/components/visualizations/charts/LineSalesChart";
 
 const Home = () => {
   return (
@@ -60,14 +58,16 @@ const Home = () => {
             </Card>
           </div>
 
+<div className="mt-5">
           <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Sales Chart</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
-                <AreaSalesChart />
+                <LineSalesChart />
               </CardContent>
-            </Card>
+          </Card>
+          </div>
 
         </TabsContent>
       </Tabs>

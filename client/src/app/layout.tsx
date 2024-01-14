@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
-import "./styles/globals.css";
+
 import { Providers } from "./chakraUi/providers";
 
+import "./styles/globals.css";
 import Header from "@/components/layout/header/Header";
 import HeaderMobile from "@/components/layout/header/HeaderMobile";
 import SideNav from "@/components/layout/sideNav/SideNav";
