@@ -28,7 +28,7 @@ const Onboarding = async () => {
   return (
     <div>
       <div className="flex justify-end ">
-        <Button size={'sm'} variant="customTheme">
+        <Button size={'sm'}>
           <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
         </Button>
       </div>
