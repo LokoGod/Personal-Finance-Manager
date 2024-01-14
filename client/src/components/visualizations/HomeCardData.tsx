@@ -28,7 +28,7 @@ const HomeCardData = () => {
           <div className="text-2xl font-bold">$45,231.89</div>
 
           <div className="text-xs text-muted-foreground">
-            <Badge>+20.1%</Badge> from last month
+            <Badge variant={"customSuccessGreen"}>+20.1%</Badge> from last month
           </div>
         </CardContent>
       </Card>
@@ -41,7 +41,8 @@ const HomeCardData = () => {
         <CardContent>
           <div className="text-2xl font-bold">+2350</div>
           <div className="text-xs text-muted-foreground">
-            <Badge>+180.1%</Badge> from last month
+            <Badge variant={"customSuccessGreen"}>+180.1%</Badge> from last
+            month
           </div>
         </CardContent>
       </Card>
@@ -53,7 +54,9 @@ const HomeCardData = () => {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+12,234</div>
-          <div className="text-xs text-muted-foreground"><Badge>+19%</Badge> from last month</div>
+          <div className="text-xs text-muted-foreground">
+            <Badge variant={"destructive"}>-19%</Badge> from last month
+          </div>
         </CardContent>
       </Card>
 
@@ -64,7 +67,9 @@ const HomeCardData = () => {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">+573</div>
-          <div className="text-xs text-muted-foreground"><Badge>+201</Badge> since last hour</div>
+          <div className="text-xs text-muted-foreground">
+            <Badge variant={"customSuccessGreen"}>+201</Badge> since last hour
+          </div>
         </CardContent>
       </Card>
     </div>

@@ -1,5 +1,5 @@
 import HomeCardData from "@/components/visualizations/HomeCardData";
-import DashBarChart from "@/components/visualizations/charts/DashBarChart";
+import HomeBarChart from "@/components/visualizations/charts/HomeBarChart";
 import React from "react";
 
 import {
@@ -10,29 +10,53 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import HomeTable from "@/components/visualizations/HomeTable";
 
 const Home = () => {
   return (
     <div>
-      <HomeCardData />
+      <h2 className="text-3xl font-bold tracking-tight mb-2">Home</h2>
+      <Tabs defaultValue="overview">
+        <Card className="w-fit mb-2">
+          <TabsList>
+            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
+            <TabsTrigger value="reports" disabled>
+              Reports
+            </TabsTrigger>
+            <TabsTrigger value="notifications" disabled>
+              Notifications
+            </TabsTrigger>
+          </TabsList>
+        </Card>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <Card className="col-span-4">
-          <CardHeader>
-            <CardTitle>Overview</CardTitle>
-          </CardHeader>
-          <CardContent className="pl-2">
-            <DashBarChart />
-          </CardContent>
-        </Card>
-        <Card className="col-span-3">
-          <CardHeader>
-            <CardTitle>Recent Sales</CardTitle>
-            <CardDescription>You made 265 sales this month.</CardDescription>
-          </CardHeader>
-          <CardContent>{/* <RecentSales /> */}</CardContent>
-        </Card>
-      </div>
+        <TabsContent value="overview">
+          <HomeCardData />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card className="col-span-4">
+              <CardHeader>
+                <CardTitle>Overview</CardTitle>
+              </CardHeader>
+              <CardContent className="pl-2">
+                <HomeBarChart />
+              </CardContent>
+            </Card>
+            <Card className="col-span-3">
+              <CardHeader>
+                <CardTitle>Recent Sales</CardTitle>
+                <CardDescription>
+                  You made 265 sales this month.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <HomeTable />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

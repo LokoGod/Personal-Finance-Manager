@@ -54,7 +54,7 @@ const data = [
   },
 ]
 
-const DashBarChart = () => {
+const HomeBarChart = () => {
   return (
     <ResponsiveContainer width="100%" height={350}>
     <BarChart data={data}>
@@ -76,14 +76,14 @@ const DashBarChart = () => {
         dataKey="total"
         fill="currentColor"
         radius={[4, 4, 0, 0]}
-        className="fill-amber-300"
+        className="fill-black"
       />
     </BarChart>
   </ResponsiveContainer>
   )
 }
 
-export default DashBarChart
+export default HomeBarChart
 
 
 
