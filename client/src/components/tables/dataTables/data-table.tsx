@@ -112,7 +112,7 @@ export function DataTable<TData, TValue>({
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-auto h-9 text-xs">
               Columns
               <IoChevronDownSharp className="ml-2 h-4 w-4" />
             </Button>
@@ -125,7 +125,7 @@ export function DataTable<TData, TValue>({
                 return (
                   <DropdownMenuCheckboxItem
                     key={column.id}
-                    className="capitalize"
+                    className="capitalize text-xs"
                     checked={column.getIsVisible()}
                     onCheckedChange={(value) =>
                       column.toggleVisibility(!!value)
