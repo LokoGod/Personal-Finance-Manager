@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HomeTable from "@/components/visualizations/HomeTable";
+import AreaSalesChart from "@/components/visualizations/charts/AreaSalesChart";
 
 const Home = () => {
   return (
@@ -55,6 +56,16 @@ const Home = () => {
               </CardContent>
             </Card>
           </div>
+
+          <Card className="col-span-4">
+              <CardHeader>
+                <CardTitle>Sales Chart</CardTitle>
+              </CardHeader>
+              <CardContent className="pl-2">
+                <AreaSalesChart />
+              </CardContent>
+            </Card>
+
         </TabsContent>
       </Tabs>
     </div>
