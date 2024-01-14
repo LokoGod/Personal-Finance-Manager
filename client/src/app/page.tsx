@@ -1,6 +1,6 @@
-import HomeCardData from "@/components/visualizations/HomeCardData";
-import HomeBarChart from "@/components/visualizations/charts/HomeBarChart";
 import React from "react";
+
+
 
 import {
   Card,
@@ -11,6 +11,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import HomeCardData from "@/components/visualizations/HomeCardData";
+import HomeBarChart from "@/components/visualizations/charts/HomeBarChart";
 import HomeTable from "@/components/visualizations/HomeTable";
 import AreaSalesChart from "@/components/visualizations/charts/AreaSalesChart";
 
