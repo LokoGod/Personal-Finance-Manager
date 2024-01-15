@@ -53,6 +53,9 @@ export const payrollColumn: ColumnDef<PayrollColumnType>[] = [
   {
     accessorKey: "title",
     header: "Title",
+    cell: ({ row }) => {
+        return <a href="#" className="font-medium hover:underline">{row.getValue("title")}</a>;
+      },
   },
   {
     accessorKey: "frequency",
