@@ -81,85 +81,89 @@ export function AddNewCycleForm() {
         <TabsContent value="employeeBasic">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <div className="">
-              <Card className="w-[50rem]">
-                <CardHeader>
-                  <CardTitle>Basic details</CardTitle>
-                </CardHeader>
-                <CardContent className="grid gap-6">
-                  <div>
+              <div className="">
+                <Card className="w-[50rem]">
+                  <CardHeader>
+                    <CardTitle>Basic details</CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid gap-6">
+                    <div>
+                      <FormField
+                        control={form.control}
+                        name="title"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="">
+                              Payroll cycle title
+                            </FormLabel>
+                            <FormControl>
+                              <Input className="" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                     <FormField
                       control={form.control}
-                      name="title"
+                      name="baseSalaryType"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="">Payroll cycle title</FormLabel>
+                        <FormItem className="space-y-3">
+                          <FormLabel>Base salary</FormLabel>
                           <FormControl>
-                            <Input className="" {...field} />
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className="flex flex-col space-y-1"
+                            >
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="fixed" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Fixed
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="hourly" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Hourly
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                  </div>
-                  <FormField
-                    control={form.control}
-                    name="baseSalaryType"
-                    render={({ field }) => (
-                      <FormItem className="space-y-3">
-                        <FormLabel>Base salary</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-1"
-                          >
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="fixed" />
-                              </FormControl>
-                              <FormLabel className="font-normal">
-                                Fixed
-                              </FormLabel>
-                            </FormItem>
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="hourly" />
-                              </FormControl>
-                              <FormLabel className="font-normal">
-                                Hourly
-                              </FormLabel>
-                            </FormItem>
-                          </RadioGroup>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
 
-                  <div>
-                    <FormField
-                      control={form.control}
-                      name="description"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Description</FormLabel>
-                          <FormControl>
-                            <Textarea className="" {...field} />
-                          </FormControl>
-                          <FormDescription>
-                            Enter a small description about the cycle
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button variant={"accentBlue"} type="submit">Submit</Button>
-                </CardFooter>
-              </Card>
+                    <div>
+                      <FormField
+                        control={form.control}
+                        name="description"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Description</FormLabel>
+                            <FormControl>
+                              <Textarea className="" {...field} />
+                            </FormControl>
+                            <FormDescription>
+                              Enter a small description about the cycle
+                            </FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant={"accentBlue"} type="submit">
+                      Submit & Continue
+                    </Button>
+                  </CardFooter>
+                </Card>
               </div>
             </form>
           </Form>
