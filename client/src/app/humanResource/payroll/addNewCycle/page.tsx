@@ -37,7 +37,7 @@ const AddNewCycle = () => {
               Payroll
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem className="text-blue-600">
             <BreadcrumbLink href="/humanResource/payroll/addNewCycle">
               Add new cycle
             </BreadcrumbLink>
