@@ -71,7 +71,7 @@ const HomeBarChart = () => {
         dataKey="Total"
         fill="currentColor"
         radius={[4, 4, 0, 0]}
-        className="fill-black"
+        className="fill-blue-800"
       />
     </BarChart>
   </ResponsiveContainer>
