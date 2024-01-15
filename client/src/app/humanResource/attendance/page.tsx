@@ -24,7 +24,7 @@ const Attendance = () => {
             <BreadcrumbItem>
               <BreadcrumbLink href="/humanResource">Human Resource</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbItem>
+            <BreadcrumbItem className="text-blue-600">
               <BreadcrumbLink href="humanResource/attendance">Attendance</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>

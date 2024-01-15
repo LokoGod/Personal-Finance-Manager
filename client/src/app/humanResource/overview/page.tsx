@@ -45,7 +45,7 @@ const Overview = async () => {
               Human Resource
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem className="text-blue-600">
             <BreadcrumbLink href="/humanResource">Overview</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>

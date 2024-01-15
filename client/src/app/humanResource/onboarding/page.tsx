@@ -84,7 +84,7 @@ const Onboarding = async () => {
               Human Resource
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem className="text-blue-600">
             <BreadcrumbLink href="humanResource/onboarding">
               Onboarding
             </BreadcrumbLink>

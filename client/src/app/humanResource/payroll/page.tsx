@@ -62,7 +62,7 @@ const Payroll = async () => {
               Human Resource
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem className="text-blue-600">
             <BreadcrumbLink href="/humanResource/payroll">
               Payroll
             </BreadcrumbLink>
