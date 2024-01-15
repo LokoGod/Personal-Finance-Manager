@@ -4,7 +4,7 @@ import { OnboardEmployeeForm } from "@/components/forms/OnboardEmployeeForm";
 
 
 
-const page = () => {
+const AddNewEmployee = () => {
   return (
     <div>
       <OnboardEmployeeForm />
@@ -13,4 +13,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AddNewEmployee;
