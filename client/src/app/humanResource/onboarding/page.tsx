@@ -92,6 +92,7 @@ const Onboarding = async () => {
         </Breadcrumb>
       </div>
 
+<div className="flex justify-between">
       <h2 className="text-3xl font-bold tracking-tight">Onboarding</h2>
 
       <div className="flex justify-end ">
@@ -100,6 +101,7 @@ const Onboarding = async () => {
             <IoIosAdd className=" mr-0.5 h-6 w-6" /> Onboard new employee
           </Link>
         </Button>
+      </div>
       </div>
 
       <DataTable columns={columns} data={data} />
