@@ -9,9 +9,10 @@ import {
 } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 
+import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
-import { IoIosAdd } from "react-icons/io";
+
 import { DataTable } from "@/components/tables/dataTables/payrollTable/payrollDataTable";
 import {
   PayrollColumnType,
