@@ -1,8 +1,10 @@
 "use client";
-
+import React from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +16,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from "@chakra-ui/react";
 import {
   Card,
   CardContent,
@@ -46,6 +54,17 @@ const formSchema = z.object({
 });
 
 export function AddNewCycleForm() {
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const handleTabsChange = (index: number) => {
+    setTabIndex(index);
+  };
+
+  const handleNextButtonClick = () => {
+    const nextIndex = (tabIndex + 1) % 3; // Assuming there are 3 tabs
+    setTabIndex(nextIndex);
+  };
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,20 +84,21 @@ export function AddNewCycleForm() {
 
   return (
     <div className="">
-      <Tabs defaultValue="employeeBasic">
-        <Card className="w-fit mb-2">
-          <TabsList>
-            <TabsTrigger value="employeeBasic">Basic Details</TabsTrigger>
-            <TabsTrigger value="compensation">Compensation</TabsTrigger>
-            <TabsTrigger value="timeoff" disabled>
-              Time off
-            </TabsTrigger>
-            <TabsTrigger value="documents" disabled>
-              Documents
-            </TabsTrigger>
-          </TabsList>
-        </Card>
-        <TabsContent value="employeeBasic">
+      <Tabs
+        isFitted
+        variant="enclosed"
+        index={tabIndex}
+        onChange={handleTabsChange}
+      >
+        
+        <TabList mb="1em">
+          <Tab>One</Tab>
+          <Tab>Two</Tab>
+          <Tab>Three</Tab>
+        </TabList>
+      
+        <TabPanels>
+        <TabPanel>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="">
@@ -159,7 +179,7 @@ export function AddNewCycleForm() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button variant={"accentBlue"} type="submit">
+                    <Button variant={"accentBlue"} onClick={handleNextButtonClick}>
                       Submit & Continue
                     </Button>
                   </CardFooter>
@@ -167,8 +187,8 @@ export function AddNewCycleForm() {
               </div>
             </form>
           </Form>
-        </TabsContent>
-        <TabsContent value="compensation">
+        </TabPanel>
+        <TabPanel>
           <Card>
             <CardHeader>
               <CardTitle>Hello there</CardTitle>
@@ -181,10 +201,12 @@ export function AddNewCycleForm() {
               <CardDescription>This is the footer</CardDescription>
             </CardFooter>
           </Card>
-        </TabsContent>
-        <TabsContent value="timeoff">This is Time off</TabsContent>
-        <TabsContent value="documents">This isDocuments</TabsContent>
+        </TabPanel>
+        <TabPanel>This is Time off</TabPanel>
+        <TabPanel>This isDocuments</TabPanel>
+      </TabPanels>
       </Tabs>
+
     </div>
   );
 }

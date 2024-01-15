@@ -7,6 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
+import ControlledExample from "@/components/forms/NewForm";
 
 const Attendance = () => {
   return (
@@ -28,7 +29,11 @@ const Attendance = () => {
               <BreadcrumbLink href="humanResource/attendance">Attendance</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
-        </div>       
+        </div>     
+
+
+        <ControlledExample />
+
     </div>
   );
 };
