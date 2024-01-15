@@ -56,7 +56,19 @@ export const payrollColumn: ColumnDef<PayrollColumnType>[] = [
   },
   {
     accessorKey: "frequency",
-    header: "Frequency"
+    header: ({ column }) => {
+      return (
+        <div className="">
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Frequency
+            <LuArrowUpDown className="ml-1 h-4 w-4" />
+          </Button>
+        </div>
+      );
+    },
   },
   {
     // formated the amount cell to display the dollar amount, also aligned the cell to the right.

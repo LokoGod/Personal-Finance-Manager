@@ -23,14 +23,20 @@ async function getData(): Promise<PayrollColumnType[]> {
     {
       id: "12Abc3F4e5D",
       title: "Intern",
-      frequency: "Monthly",
+      frequency: "Monthly Compensation",
       employees: 20,
     },
     {
       id: "12Abc3F4e5C",
       title: "Temp",
-      frequency: "Weekly",
+      frequency: "Weekly Compensation",
       employees: 52,
+    },
+    {
+      id: "12Abc3F4e5A",
+      title: "Permenant",
+      frequency: "Monthly Compensation",
+      employees: 100,
     },
   ];
 }
