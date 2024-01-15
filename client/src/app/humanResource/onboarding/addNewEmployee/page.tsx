@@ -8,7 +8,6 @@ const AddNewEmployee = () => {
   return (
     <div>
       <OnboardEmployeeForm />
-  
     </div>
   );
 };
