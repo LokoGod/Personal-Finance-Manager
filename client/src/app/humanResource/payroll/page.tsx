@@ -12,8 +12,26 @@ import { Button } from "@/components/ui/button";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
 import { IoIosAdd } from "react-icons/io";
+import { DataTable } from "@/components/tables/dataTables/payrollTable/payrollDataTable";
+import {
+  PayrollColumnType,
+  payrollColumn,
+} from "@/components/tables/dataTables/payrollTable/payrollColumn";
 
-const Payroll = () => {
+async function getData(): Promise<PayrollColumnType[]> {
+  return [
+    {
+      id: "12Abc3F4e5D",
+      title: "Intern",
+      frequency: "Monthly",
+      employees: 20,
+    },
+  ];
+}
+
+const Payroll = async () => {
+  const data = await getData();
+
   return (
     <div>
       <div className="text-xs mb-2">
@@ -50,6 +68,8 @@ const Payroll = () => {
           </Button>
         </div>
       </div>
+
+      <DataTable columns={payrollColumn} data={data} />
     </div>
   );
 };
