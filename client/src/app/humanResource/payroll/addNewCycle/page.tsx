@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -12,12 +12,12 @@ import { Button } from "@/components/ui/button";
 import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
-import { AddNewCycleForm } from '@/components/forms/AddNewCycleForm';
+import { AddNewCycleForm } from "@/components/forms/AddNewCycleForm";
 
 const AddNewCycle = () => {
   return (
     <div>
-            <div className="text-xs mb-2">
+      <div className="text-xs mb-2">
         <Breadcrumb
           spacing="8px"
           separator={<IoChevronForward color="gray.500" />}
@@ -46,7 +46,9 @@ const AddNewCycle = () => {
       </div>
 
       <div className="flex justify-between mb-5">
-        <h2 className="text-3xl font-bold tracking-tight">Configure payroll cycle</h2>
+        <h2 className="text-3xl font-bold tracking-tight">
+          Configure payroll cycle
+        </h2>
 
         {/* <div className="flex justify-end ">
           <Button size={"sm"} asChild>
@@ -58,11 +60,8 @@ const AddNewCycle = () => {
       </div>
 
       <AddNewCycleForm />
-
-
-
     </div>
-  )
-}
+  );
+};
 
-export default AddNewCycle
+export default AddNewCycle;

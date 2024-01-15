@@ -157,7 +157,7 @@ export function AddNewCycleForm() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button type="submit">Submit</Button>
+                  <Button variant={"accentBlue"} type="submit">Submit</Button>
                 </CardFooter>
               </Card>
               </div>
