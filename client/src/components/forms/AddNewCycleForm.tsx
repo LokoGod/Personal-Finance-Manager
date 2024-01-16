@@ -85,9 +85,10 @@ export function AddNewCycleForm() {
         onChange={handleTabsChange}
       >
         <TabList mb="1em">
-          <Tab>One</Tab>
-          <Tab>Two</Tab>
+          <Tab>General</Tab>
+          <Tab>Pay</Tab>
           <Tab>Three</Tab>
+          <Tab>4</Tab>
         </TabList>
 
         <TabPanels>
@@ -100,7 +101,7 @@ export function AddNewCycleForm() {
                 <div className="">
                   <Card className="w-[50rem]">
                     <CardHeader>
-                      <CardTitle>Basic details</CardTitle>
+                      <CardTitle>General details</CardTitle>
                     </CardHeader>
                     <CardContent className="grid gap-6">
                       <div>
@@ -190,6 +191,7 @@ export function AddNewCycleForm() {
               </form>
             </Form>
           </TabPanel>
+
           <TabPanel>
             <Card>
               <CardHeader>
@@ -204,6 +206,7 @@ export function AddNewCycleForm() {
               </CardFooter>
             </Card>
           </TabPanel>
+          
           <TabPanel>This is Time off</TabPanel>
           <TabPanel>This isDocuments</TabPanel>
         </TabPanels>
