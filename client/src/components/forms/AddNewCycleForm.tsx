@@ -90,14 +90,10 @@ export function AddNewCycleForm() {
           <Tab>Three</Tab>
           <Tab>4</Tab>
         </TabList>
-
-        <TabPanels>
-          <TabPanel>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8"
-              >
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <TabPanels>
+              <TabPanel>
                 <div className="">
                   <Card className="w-[50rem]">
                     <CardHeader>
@@ -188,28 +184,44 @@ export function AddNewCycleForm() {
                     </CardFooter>
                   </Card>
                 </div>
-              </form>
-            </Form>
-          </TabPanel>
+              </TabPanel>
 
-          <TabPanel>
-            <Card>
-              <CardHeader>
-                <CardTitle>Hello there</CardTitle>
-                <CardDescription>This is the description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>This is the body of the card</CardDescription>
-              </CardContent>
-              <CardFooter>
-                <CardDescription>This is the footer</CardDescription>
-              </CardFooter>
-            </Card>
-          </TabPanel>
-          
-          <TabPanel>This is Time off</TabPanel>
-          <TabPanel>This isDocuments</TabPanel>
-        </TabPanels>
+              <TabPanel>
+              <div className="">
+                  <Card className="w-[50rem]">
+                    <CardHeader>
+                      <CardTitle>Pay details</CardTitle>
+                    </CardHeader>
+                    <CardContent className="grid gap-6">
+                      <div>
+                       
+                      </div>
+                      
+
+                      <div>
+                       
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button
+                        variant={"accentBlue"}
+                        onClick={handleNextButtonClick}
+                        disabled={
+                          !form.formState.isDirty || !form.formState.isValid
+                        }
+                      >
+                        Submit & Continue
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+              </TabPanel>
+
+              <TabPanel>This is Time off</TabPanel>
+              <TabPanel>This isDocuments</TabPanel>
+            </TabPanels>
+          </form>
+        </Form>
       </Tabs>
     </div>
   );
