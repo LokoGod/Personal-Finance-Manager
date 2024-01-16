@@ -45,6 +45,14 @@ const formSchema = z.object({
   description: z
     .string()
     .min(10, { message: "description must have 10 characters at least." }),
+    test: z
+    .string()
+    .min(2, {
+      message: "test must be at least 2 characters.",
+    })
+    .max(50, {
+      message: "test must be less than 50 characters.",
+    }),
 });
 
 export function AddNewCycleForm() {
@@ -66,6 +74,7 @@ export function AddNewCycleForm() {
       title: "",
       baseSalaryType: "fixed",
       description: "",
+      test:"",
     },
   });
 
@@ -175,9 +184,6 @@ export function AddNewCycleForm() {
                       <Button
                         variant={"accentBlue"}
                         onClick={handleNextButtonClick}
-                        disabled={
-                          !form.formState.isDirty || !form.formState.isValid
-                        }
                       >
                         Submit & Continue
                       </Button>
@@ -193,8 +199,22 @@ export function AddNewCycleForm() {
                       <CardTitle>Pay details</CardTitle>
                     </CardHeader>
                     <CardContent className="grid gap-6">
-                      <div>
-                       
+                    <div>
+                        <FormField
+                          control={form.control}
+                          name="test"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="">
+                                Test
+                              </FormLabel>
+                              <FormControl>
+                                <Input className="" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                       </div>
                       
 
@@ -206,9 +226,6 @@ export function AddNewCycleForm() {
                       <Button
                         variant={"accentBlue"}
                         onClick={handleNextButtonClick}
-                        disabled={
-                          !form.formState.isDirty || !form.formState.isValid
-                        }
                       >
                         Submit & Continue
                       </Button>
@@ -217,7 +234,17 @@ export function AddNewCycleForm() {
                 </div>
               </TabPanel>
 
-              <TabPanel>This is Time off</TabPanel>
+              <TabPanel>This is Time off
+              <Button
+                        variant={"accentBlue"}
+                        onClick={handleNextButtonClick}
+                        disabled={
+                          !form.formState.isDirty || !form.formState.isValid
+                        }
+                      >
+                        Submit & Continue
+                      </Button>
+              </TabPanel>
               <TabPanel>This isDocuments</TabPanel>
             </TabPanels>
           </form>
