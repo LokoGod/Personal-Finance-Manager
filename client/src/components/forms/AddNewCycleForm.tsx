@@ -212,7 +212,8 @@ export function AddNewCycleForm() {
                       <Card>
                         <CardHeader className="space-y-1">
                           <CardDescription>
-                            Enter your email below to create your account
+                            Configure the additions and deductions to the
+                            employee base salary
                           </CardDescription>
                         </CardHeader>
                         <CardContent className="grid gap-4">
@@ -227,22 +228,46 @@ export function AddNewCycleForm() {
                               <DialogContent>
                                 <DialogHeader>
                                   <DialogTitle>
-                                    Are you absolutely sure?
+                                    Additions
                                   </DialogTitle>
                                   <DialogDescription>
-                                    This action cannot be undone. This will
-                                    permanently delete your account and remove
-                                    your data from our servers.
+                                    Add cat: OT, Bonuses & icentives, Commisions, employer contributions
+                                    Choose: rate or %
                                   </DialogDescription>
+
+                                    <DialogDescription>
+                                    Step 01: Choose Cat
+                                    Step 02: Add rate or % on the basic
+                                    </DialogDescription>
                                 </DialogHeader>
                                 <Button>Hello there</Button>
                               </DialogContent>
                             </Dialog>
 
-                            <Button variant="outline">
-                              <RxMinusCircled className="mr-2 h-4 w-4" />
-                              Deductions
-                            </Button>
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="outline">
+                                  <RxMinusCircled className="mr-2 h-4 w-4" />
+                                  Deductions
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent>
+                                <DialogHeader>
+                                  <DialogTitle>
+                                    Are you absolutely sure?
+                                  </DialogTitle>
+                                  <DialogDescription>
+                                    Deduction Cat: Tax,EPF/401K/Retirment, Insurance, Comp deduct, unpaid days,shortleaves,halfdays
+                                    Choose: rate or %
+                                    </DialogDescription>
+                                    <DialogDescription>
+                                    Step 01: Choose Cat
+                                    Step 02: Add rate or % on the basic
+                                  </DialogDescription>
+                                </DialogHeader>
+                                <Button>Hello there</Button>
+                              </DialogContent>
+                            </Dialog>
                           </div>
                         </CardContent>
 
