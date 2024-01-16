@@ -25,10 +25,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+import { RxPlusCircled, RxMinusCircled } from "react-icons/rx";
 
 const formSchema = z.object({
   title: z
@@ -45,7 +55,7 @@ const formSchema = z.object({
   description: z
     .string()
     .min(10, { message: "description must have 10 characters at least." }),
-    test: z
+  test: z
     .string()
     .min(2, {
       message: "test must be at least 2 characters.",
@@ -74,7 +84,7 @@ export function AddNewCycleForm() {
       title: "",
       baseSalaryType: "fixed",
       description: "",
-      test:"",
+      test: "",
     },
   });
 
@@ -185,7 +195,7 @@ export function AddNewCycleForm() {
                         variant={"accentBlue"}
                         onClick={handleNextButtonClick}
                       >
-                        Submit & Continue
+                        Continue
                       </Button>
                     </CardFooter>
                   </Card>
@@ -193,57 +203,75 @@ export function AddNewCycleForm() {
               </TabPanel>
 
               <TabPanel>
-              <div className="">
+                <div className="">
                   <Card className="w-[50rem]">
                     <CardHeader>
-                      <CardTitle>Pay details</CardTitle>
+                      <CardTitle>Pay adjustments</CardTitle>
                     </CardHeader>
                     <CardContent className="grid gap-6">
-                    <div>
-                        <FormField
-                          control={form.control}
-                          name="test"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="">
-                                Test
-                              </FormLabel>
-                              <FormControl>
-                                <Input className="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
+                      <Card>
+                        <CardHeader className="space-y-1">
+                          <CardDescription>
+                            Enter your email below to create your account
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="grid gap-4">
+                          <div className="grid grid-cols-2 gap-6">
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <Button variant="outline">
+                                  <RxPlusCircled className="mr-2 h-4 w-4" />
+                                  Additions
+                                </Button>
+                              </DialogTrigger>
+                              <DialogContent>
+                                <DialogHeader>
+                                  <DialogTitle>
+                                    Are you absolutely sure?
+                                  </DialogTitle>
+                                  <DialogDescription>
+                                    This action cannot be undone. This will
+                                    permanently delete your account and remove
+                                    your data from our servers.
+                                  </DialogDescription>
+                                </DialogHeader>
+                                <Button>Hello there</Button>
+                              </DialogContent>
+                            </Dialog>
 
-                      <div>
-                       
-                      </div>
+                            <Button variant="outline">
+                              <RxMinusCircled className="mr-2 h-4 w-4" />
+                              Deductions
+                            </Button>
+                          </div>
+                        </CardContent>
+
+                        <CardFooter></CardFooter>
+                      </Card>
+
+                      <div></div>
                     </CardContent>
                     <CardFooter>
                       <Button
                         variant={"accentBlue"}
                         onClick={handleNextButtonClick}
                       >
-                        Submit & Continue
+                        Continue
                       </Button>
                     </CardFooter>
                   </Card>
                 </div>
               </TabPanel>
 
-              <TabPanel>This is Time off
-              <Button
-                        variant={"accentBlue"}
-                        onClick={handleNextButtonClick}
-                        disabled={
-                          !form.formState.isDirty || !form.formState.isValid
-                        }
-                      >
-                        Submit & Continue
-                      </Button>
+              <TabPanel>
+                This is Time off
+                <Button
+                  variant={"accentBlue"}
+                  onClick={handleNextButtonClick}
+                  disabled={!form.formState.isDirty || !form.formState.isValid}
+                >
+                  Submit & Continue
+                </Button>
               </TabPanel>
               <TabPanel>This isDocuments</TabPanel>
             </TabPanels>
