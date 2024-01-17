@@ -58,6 +58,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { RxPlusCircled, RxMinusCircled } from "react-icons/rx";
 import { LuBadgePercent } from "react-icons/lu";
 import { InputWithAddon } from "../ui/inputWithAddon";
+import { Separator } from "../ui/separator";
 
 const formSchema = z.object({
   title: z
@@ -251,8 +252,8 @@ export function AddNewCycleForm() {
                                 <div className="grid grid-cols-2 gap-5">
                                   <div>
                                     <Select>
-                                      <SelectTrigger className="w-[180px]">
-                                        <SelectValue placeholder="Theme" />
+                                      <SelectTrigger className="">
+                                        <SelectValue placeholder="Pay adjustment category" />
                                       </SelectTrigger>
                                       <SelectContent>
                                         <SelectItem value="light">
@@ -278,6 +279,8 @@ export function AddNewCycleForm() {
                                           Percentage
                                         </FormLabel>
                                       </FormItem>
+
+
                                       <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl>
                                           <RadioGroupItem value="hourly" />
@@ -288,18 +291,20 @@ export function AddNewCycleForm() {
                                       </FormItem>
                                     </RadioGroup>
                                   </div>
+                                  
 
-                                  <div>
+                                  
+                                </div>
+                                <div>
                                     <div>
                                       <div className="flex rounded-lg shadow-sm">
                                         <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
-                                          Small
+                                          %
                                         </span>
                                         <Input />
                                       </div>
                                     </div>
                                   </div>
-                                </div>
 
                                 <Button>Add</Button>
                               </DialogContent>
