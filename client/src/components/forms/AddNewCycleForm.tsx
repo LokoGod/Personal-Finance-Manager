@@ -87,6 +87,8 @@ const formSchema = z.object({
 
 export function AddNewCycleForm() {
   const [tabIndex, setTabIndex] = useState(0);
+  const [selectedRadioAdditionOption, setSelectedRadioAdditionOption] =
+    useState("");
 
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
@@ -114,6 +116,10 @@ export function AddNewCycleForm() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  const handleRadioButton = (event: any) => {
+    setSelectedRadioAdditionOption(event.target.value);
+  };
 
   return (
     <div className="">
@@ -270,20 +276,23 @@ export function AddNewCycleForm() {
                                   </div>
 
                                   <div>
-                                    <RadioGroup className="flex flex-col space-y-1">
+                                    <RadioGroup
+                                      className="flex flex-col space-y-1"
+                                      value={selectedRadioAdditionOption}
+                                      onChange={handleRadioButton}
+                                    >
                                       <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl>
-                                          <RadioGroupItem value="fixed" />
+                                          <RadioGroupItem value="percentage" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
                                           Percentage
                                         </FormLabel>
                                       </FormItem>
 
-
                                       <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl>
-                                          <RadioGroupItem value="hourly" />
+                                          <RadioGroupItem value="amount" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
                                           Amount
@@ -291,20 +300,20 @@ export function AddNewCycleForm() {
                                       </FormItem>
                                     </RadioGroup>
                                   </div>
-                                  
-
-                                  
                                 </div>
                                 <div>
-                                    <div>
-                                      <div className="flex rounded-lg shadow-sm">
-                                        <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
-                                          %
-                                        </span>
-                                        <Input />
-                                      </div>
+                                  <div>
+                                    <div className="flex rounded-lg shadow-sm">
+                                      <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
+                                        {selectedRadioAdditionOption ===
+                                        "percentage"
+                                          ? "%"
+                                          : "$"}
+                                      </span>
+                                      <Input />
                                     </div>
                                   </div>
+                                </div>
 
                                 <Button>Add</Button>
                               </DialogContent>
