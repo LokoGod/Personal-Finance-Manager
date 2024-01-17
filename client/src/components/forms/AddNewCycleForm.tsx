@@ -16,7 +16,15 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Tabs, TabList, TabPanels, Tab, TabPanel, InputLeftAddon, InputGroup } from "@chakra-ui/react";
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  InputLeftAddon,
+  InputGroup,
+} from "@chakra-ui/react";
 import { Badge } from "@chakra-ui/react";
 import {
   Card,
@@ -228,7 +236,6 @@ export function AddNewCycleForm() {
                           </CardDescription>
                         </CardHeader>
                         <CardContent className="grid gap-4">
-                          
                           <div className="grid grid-cols-2 gap-6">
                             <Dialog>
                               <DialogTrigger asChild>
@@ -240,57 +247,61 @@ export function AddNewCycleForm() {
                               <DialogContent>
                                 <DialogHeader>
                                   <DialogTitle>Additions</DialogTitle>
-                                  </DialogHeader>
-                                  <div className="grid grid-cols-2 gap-5">
+                                </DialogHeader>
+                                <div className="grid grid-cols-2 gap-5">
+                                  <div>
+                                    <Select>
+                                      <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="Theme" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                        <SelectItem value="light">
+                                          Light
+                                        </SelectItem>
+                                        <SelectItem value="dark">
+                                          Dark
+                                        </SelectItem>
+                                        <SelectItem value="system">
+                                          System
+                                        </SelectItem>
+                                      </SelectContent>
+                                    </Select>
+                                  </div>
+
+                                  <div>
+                                    <RadioGroup className="flex flex-col space-y-1">
+                                      <FormItem className="flex items-center space-x-3 space-y-0">
+                                        <FormControl>
+                                          <RadioGroupItem value="fixed" />
+                                        </FormControl>
+                                        <FormLabel className="font-normal">
+                                          Percentage
+                                        </FormLabel>
+                                      </FormItem>
+                                      <FormItem className="flex items-center space-x-3 space-y-0">
+                                        <FormControl>
+                                          <RadioGroupItem value="hourly" />
+                                        </FormControl>
+                                        <FormLabel className="font-normal">
+                                          Amount
+                                        </FormLabel>
+                                      </FormItem>
+                                    </RadioGroup>
+                                  </div>
+
+                                  <div>
                                     <div>
-                                  <Select>
-                                    <SelectTrigger className="w-[180px]">
-                                      <SelectValue placeholder="Theme" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      <SelectItem value="light">
-                                        Light
-                                      </SelectItem>
-                                      <SelectItem value="dark">Dark</SelectItem>
-                                      <SelectItem value="system">
-                                        System
-                                      </SelectItem>
-                                    </SelectContent>
-                                  </Select>
+                                      <div className="flex rounded-lg shadow-sm">
+                                        <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
+                                          Small
+                                        </span>
+                                        <Input />
+                                      </div>
+                                    </div>
                                   </div>
-
-                                  <div>
-                                  <RadioGroup className="flex flex-col space-y-1">
-                                    <FormItem className="flex items-center space-x-3 space-y-0">
-                                      <FormControl>
-                                        <RadioGroupItem value="fixed" />
-                                      </FormControl>
-                                      <FormLabel className="font-normal">
-                                        Percentage
-                                      </FormLabel>
-                                    </FormItem>
-                                    <FormItem className="flex items-center space-x-3 space-y-0">
-                                      <FormControl>
-                                        <RadioGroupItem value="hourly" />
-                                      </FormControl>
-                                      <FormLabel className="font-normal">
-                                        Amount
-                                      </FormLabel>
-                                    </FormItem>
-                                  </RadioGroup>
-                                  </div>
-
-                                  <div>
-                      
-                                  
-                                  <InputWithAddon />
-                             
-                                  </div>
-
-                                  </div>
+                                </div>
 
                                 <Button>Add</Button>
-                              
                               </DialogContent>
                             </Dialog>
 
