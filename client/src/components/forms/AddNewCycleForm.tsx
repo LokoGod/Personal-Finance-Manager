@@ -16,7 +16,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel, InputLeftAddon, InputGroup } from "@chakra-ui/react";
+import { Badge } from "@chakra-ui/react";
 import {
   Card,
   CardContent,
@@ -33,12 +34,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 import { RxPlusCircled, RxMinusCircled } from "react-icons/rx";
+import { LuBadgePercent } from "react-icons/lu";
+import { InputWithAddon } from "../ui/inputWithAddon";
 
 const formSchema = z.object({
   title: z
@@ -217,6 +228,7 @@ export function AddNewCycleForm() {
                           </CardDescription>
                         </CardHeader>
                         <CardContent className="grid gap-4">
+                          
                           <div className="grid grid-cols-2 gap-6">
                             <Dialog>
                               <DialogTrigger asChild>
@@ -227,20 +239,58 @@ export function AddNewCycleForm() {
                               </DialogTrigger>
                               <DialogContent>
                                 <DialogHeader>
-                                  <DialogTitle>
-                                    Additions
-                                  </DialogTitle>
-                                  <DialogDescription>
-                                    Add cat: OT, Bonuses & icentives, Commisions, employer contributions
-                                    Choose: rate or %
-                                  </DialogDescription>
+                                  <DialogTitle>Additions</DialogTitle>
+                                  </DialogHeader>
+                                  <div className="grid grid-cols-2 gap-5">
+                                    <div>
+                                  <Select>
+                                    <SelectTrigger className="w-[180px]">
+                                      <SelectValue placeholder="Theme" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="light">
+                                        Light
+                                      </SelectItem>
+                                      <SelectItem value="dark">Dark</SelectItem>
+                                      <SelectItem value="system">
+                                        System
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  </div>
 
-                                    <DialogDescription>
-                                    Step 01: Choose Cat
-                                    Step 02: Add rate or % on the basic
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <Button>Hello there</Button>
+                                  <div>
+                                  <RadioGroup className="flex flex-col space-y-1">
+                                    <FormItem className="flex items-center space-x-3 space-y-0">
+                                      <FormControl>
+                                        <RadioGroupItem value="fixed" />
+                                      </FormControl>
+                                      <FormLabel className="font-normal">
+                                        Percentage
+                                      </FormLabel>
+                                    </FormItem>
+                                    <FormItem className="flex items-center space-x-3 space-y-0">
+                                      <FormControl>
+                                        <RadioGroupItem value="hourly" />
+                                      </FormControl>
+                                      <FormLabel className="font-normal">
+                                        Amount
+                                      </FormLabel>
+                                    </FormItem>
+                                  </RadioGroup>
+                                  </div>
+
+                                  <div>
+                      
+                                  
+                                  <InputWithAddon />
+                             
+                                  </div>
+
+                                  </div>
+
+                                <Button>Add</Button>
+                              
                               </DialogContent>
                             </Dialog>
 
@@ -257,12 +307,13 @@ export function AddNewCycleForm() {
                                     Are you absolutely sure?
                                   </DialogTitle>
                                   <DialogDescription>
-                                    Deduction Cat: Tax,EPF/401K/Retirment, Insurance, Comp deduct, unpaid days,shortleaves,halfdays
-                                    Choose: rate or %
-                                    </DialogDescription>
-                                    <DialogDescription>
-                                    Step 01: Choose Cat
-                                    Step 02: Add rate or % on the basic
+                                    Deduction Cat: Tax,EPF/401K/Retirment,
+                                    Insurance, Comp deduct, unpaid
+                                    days,shortleaves,halfdays Choose: rate or %
+                                  </DialogDescription>
+                                  <DialogDescription>
+                                    Step 01: Choose Cat Step 02: Add rate or %
+                                    on the basic
                                   </DialogDescription>
                                 </DialogHeader>
                                 <Button>Hello there</Button>
