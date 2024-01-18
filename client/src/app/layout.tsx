@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { Providers } from "./chakraUi/providers";
 
@@ -10,7 +10,7 @@ import SideNav from "@/components/layout/sideNav/SideNav";
 import PageWrapper from "@/components/layout/wrappers/Page-Wrapper";
 import MarginWidthWrapper from "@/components/layout/wrappers/Margin-Width-Wrapper";
 
-const lexend = Lexend({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Admin Panel",
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={lexend.className}>
+      <body className={inter.className}>
         <Providers>
           <div className="flex">
             <SideNav />
