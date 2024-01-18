@@ -83,10 +83,13 @@ const formSchema = z.object({
     .max(50, {
       message: "test must be less than 50 characters.",
     }),
+  selectTest: z.string(),
 });
 
 export function AddNewCycleForm() {
   const [tabIndex, setTabIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [percentage, setPercentage] = useState("");
 
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
@@ -105,6 +108,7 @@ export function AddNewCycleForm() {
       baseSalaryType: "fixed",
       description: "",
       test: "",
+      selectTest: "",
     },
   });
 
@@ -115,11 +119,19 @@ export function AddNewCycleForm() {
     console.log(values);
   }
 
+  const handleAdditionSubmit = (event: any) => {
+    event.preventDefault();
+    try {
+      console.log("Selected Category:", selectedCategory);
+      console.log("Percentage:", percentage);
+    } catch (error) {}
+  };
+
   return (
     <div className="">
       <Tabs
         isFitted
-        variant="enclosed"
+        variant="soft-rounded"
         index={tabIndex}
         onChange={handleTabsChange}
       >
@@ -127,14 +139,13 @@ export function AddNewCycleForm() {
           <Tab>General</Tab>
           <Tab>Pay</Tab>
           <Tab>Three</Tab>
-          <Tab>4</Tab>
         </TabList>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <TabPanels>
               <TabPanel>
                 <div className="">
-                  <Card className="w-[50rem]">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle>General details</CardTitle>
                     </CardHeader>
@@ -224,7 +235,7 @@ export function AddNewCycleForm() {
 
               <TabPanel>
                 <div className="">
-                  <Card className="w-[50rem]">
+                  <Card className="">
                     <CardHeader>
                       <CardTitle>Pay adjustments</CardTitle>
                     </CardHeader>
@@ -249,35 +260,49 @@ export function AddNewCycleForm() {
                                 <DialogHeader>
                                   <DialogTitle>Additions</DialogTitle>
                                 </DialogHeader>
-                                <div className="grid grid-cols-2 gap-5">
+
+                                <form onSubmit={handleAdditionSubmit}>
+                                  <div className="grid grid-cols-2 gap-5">
+                                    <div>
+                                      <Select
+                                        onValueChange={(event: any) =>
+                                          setSelectedCategory(
+                                            event.target.value
+                                          )
+                                        }
+                                      >
+                                        <SelectTrigger className="">
+                                          <SelectValue placeholder="Pay adjustment category" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="light">
+                                            Light
+                                          </SelectItem>
+                                          <SelectItem value="dark">
+                                            Dark
+                                          </SelectItem>
+                                          <SelectItem value="system">
+                                            System
+                                          </SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </div>
+
+                                    <div className="flex rounded-lg shadow-sm">
+                                      <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
+                                        %
+                                      </span>
+                                      <Input
+                                        onChange={(event: any) =>
+                                          setPercentage(event.target.value)
+                                        }
+                                      />
+                                    </div>
+                                  </div>
                                   <div>
-                                    <Select>
-                                      <SelectTrigger className="">
-                                        <SelectValue placeholder="Pay adjustment category" />
-                                      </SelectTrigger>
-                                      <SelectContent>
-                                        <SelectItem value="light">
-                                          Light
-                                        </SelectItem>
-                                        <SelectItem value="dark">
-                                          Dark
-                                        </SelectItem>
-                                        <SelectItem value="system">
-                                          System
-                                        </SelectItem>
-                                      </SelectContent>
-                                    </Select>
+                                    <Button type="submit">Add</Button>
                                   </div>
-
-                                  <div className="flex rounded-lg shadow-sm">
-                                    <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
-                                      %
-                                    </span>
-                                    <Input />
-                                  </div>
-                                </div>
-
-                                <Button>Add</Button>
+                                </form>
                               </DialogContent>
                             </Dialog>
 
@@ -336,7 +361,6 @@ export function AddNewCycleForm() {
                   Submit & Continue
                 </Button>
               </TabPanel>
-              <TabPanel>This isDocuments</TabPanel>
             </TabPanels>
           </form>
         </Form>
