@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,16 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  InputLeftAddon,
-  InputGroup,
-} from "@chakra-ui/react";
-import { Badge } from "@chakra-ui/react";
 import {
   Card,
   CardContent,
@@ -49,16 +38,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 import { RxPlusCircled, RxMinusCircled } from "react-icons/rx";
-import { LuBadgePercent } from "react-icons/lu";
-import { InputWithAddon } from "../ui/inputWithAddon";
-import { Separator } from "../ui/separator";
 
 const formSchema = z.object({
   title: z
