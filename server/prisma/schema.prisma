@@ -12,20 +12,27 @@ datasource db {
 }
 
 model Payroll {
-  cycle_id Int     @id @default(autoincrement())
-  cycle_title String @unique
-  cycle_base_salary_type String?
+  id Int     @id @default(autoincrement())
+  title String @unique
+  base_salary_type String
   cycle_description String
 }
 
 model Payroll_addition {
-  payroll_addition_id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+  addition_cat String @unique
+  addition_percentage Int
 }
 
 model Payroll_deduction {
-  payroll_deduction_id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+  deduction_cat String @unique
+  deduction_percentage Int
 }
 
 model Payroll_overtime {
-  payroll_ot_id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+  calculate_rate Int
 }
+
+// Need to define the relations
