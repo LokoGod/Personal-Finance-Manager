@@ -17,3 +17,15 @@ model Payroll {
   cycle_base_salary_type String?
   cycle_description String
 }
+
+model Payroll_addition {
+  payroll_addition_id Int @id @default(autoincrement())
+}
+
+model Payroll_deduction {
+  payroll_deduction_id Int @id @default(autoincrement())
+}
+
+model Payroll_overtime {
+  payroll_ot_id Int @id @default(autoincrement())
+}
