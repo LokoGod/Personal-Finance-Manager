@@ -12,26 +12,33 @@ datasource db {
 }
 
 model Payroll {
-  id Int     @id @default(autoincrement())
-  title String @unique
-  base_salary_type String
+  id                Int                @id @default(autoincrement())
+  title             String             @unique
+  base_salary_type  String
   cycle_description String
+  payroll_addition  Payroll_addition[]
+  payroll_deduction Payroll_deduction[]
 }
 
 model Payroll_addition {
-  id Int @id @default(autoincrement())
-  addition_cat String @unique
+  id                  Int     @id @default(autoincrement())
+  addition_cat        String  @unique
   addition_percentage Int
+  payroll             Payroll @relation(fields: [payrollId], references: [id])
+  payrollId           Int
+
 }
 
 model Payroll_deduction {
-  id Int @id @default(autoincrement())
-  deduction_cat String @unique
+  id                   Int    @id @default(autoincrement())
+  deduction_cat        String @unique
   deduction_percentage Int
+  payroll             Payroll @relation(fields: [payrollId], references: [id])
+  payrollId           Int
 }
 
 model Payroll_overtime {
-  id Int @id @default(autoincrement())
+  id             Int @id @default(autoincrement())
   calculate_rate Int
 }
 
