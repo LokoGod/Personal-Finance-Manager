@@ -46,20 +46,3 @@ model Payroll_overtime {
 
 // Need to define the relations
 
-// Finance 
-
-model Income {
-  id             Int      @id @default(autoincrement())
-  income_cat     String
-  income_title   String
-  income_amount  Float
-  submitted_date DateTime
-}
-
-model Expense {
-  id             Int      @id @default(autoincrement())
-  expense_cat    String
-  expense_title  String
-  expense_amount Float
-  submitted_date DateTime
-}
