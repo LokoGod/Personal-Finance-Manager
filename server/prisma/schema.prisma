@@ -18,6 +18,7 @@ model Payroll {
   cycle_description String
   payroll_addition  Payroll_addition[]
   payroll_deduction Payroll_deduction[]
+  payroll_overtime Payroll_overtime[]
 }
 
 model Payroll_addition {
@@ -40,6 +41,8 @@ model Payroll_deduction {
 model Payroll_overtime {
   id             Int @id @default(autoincrement())
   calculate_rate Int
+  payroll Payroll @relation(fields: [payrollId], references: [id])
+  payrollId Int
 }
 
 // Need to define the relations
