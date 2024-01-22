@@ -5,7 +5,6 @@ import "dotenv/config";
 
 // Import custom routes
 
-
 // Instances
 const app = express();
 
@@ -14,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API routing
-    // app.use("/api/v1/example", exampleRouter)
+// app.use("/api/v1/example", exampleRouter)
 
 const port = process.env.PORT || 9000;
 

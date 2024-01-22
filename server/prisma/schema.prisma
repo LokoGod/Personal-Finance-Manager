@@ -12,13 +12,13 @@ datasource db {
 }
 
 model Payroll {
-  id                Int                @id @default(autoincrement())
-  title             String             @unique
+  id                Int                 @id @default(autoincrement())
+  title             String              @unique
   base_salary_type  String
   cycle_description String
   payroll_addition  Payroll_addition[]
   payroll_deduction Payroll_deduction[]
-  payroll_overtime Payroll_overtime[]
+  payroll_overtime  Payroll_overtime[]
 }
 
 model Payroll_addition {
@@ -27,22 +27,39 @@ model Payroll_addition {
   addition_percentage Int
   payroll             Payroll @relation(fields: [payrollId], references: [id])
   payrollId           Int
-
 }
 
 model Payroll_deduction {
-  id                   Int    @id @default(autoincrement())
-  deduction_cat        String @unique
+  id                   Int     @id @default(autoincrement())
+  deduction_cat        String  @unique
   deduction_percentage Int
-  payroll             Payroll @relation(fields: [payrollId], references: [id])
-  payrollId           Int
+  payroll              Payroll @relation(fields: [payrollId], references: [id])
+  payrollId            Int
 }
 
 model Payroll_overtime {
-  id             Int @id @default(autoincrement())
+  id             Int     @id @default(autoincrement())
   calculate_rate Int
-  payroll Payroll @relation(fields: [payrollId], references: [id])
-  payrollId Int
+  payroll        Payroll @relation(fields: [payrollId], references: [id])
+  payrollId      Int
 }
 
 // Need to define the relations
+
+// Finance 
+
+model Income {
+  id             Int      @id @default(autoincrement())
+  income_cat     String
+  income_title   String
+  income_amount  Float
+  submitted_date DateTime
+}
+
+model Expense {
+  id             Int      @id @default(autoincrement())
+  expense_cat    String
+  expense_title  String
+  expense_amount Float
+  submitted_date DateTime
+}
