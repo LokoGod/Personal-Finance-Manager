@@ -22,7 +22,7 @@ const ReportedIncome = () => {
           <TableRow>
             <TableHead>Title</TableHead>
             <TableHead>Category</TableHead>
-            <TableHead>Recived Date</TableHead>
+            <TableHead>Received Date</TableHead>
             <TableHead className="text-right">Amount</TableHead>
             <TableHead></TableHead>
             <TableHead></TableHead>

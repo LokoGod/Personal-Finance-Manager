@@ -12,10 +12,11 @@ datasource db {
 }
 
 model Income {
-  details    IncomeDetails  @relation(fields: [detailId], references: [id])
-  detailId   Int
-  category   IncomeCategory @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  details       IncomeDetails  @relation(fields: [detailId], references: [id])
+  detailId      Int
+  category      IncomeCategory @relation(fields: [categoryId], references: [id])
+  categoryId    Int
+  received_date DateTime       @default(now())
 
   @@id([detailId, categoryId])
 }
@@ -24,6 +25,7 @@ model IncomeDetails {
   id            Int      @id @default(autoincrement())
   income_title  String
   income_amount Float
+  received_date DateTime @default(now())
   income        Income[]
 }
 

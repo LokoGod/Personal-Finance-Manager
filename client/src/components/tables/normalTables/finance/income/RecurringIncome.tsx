@@ -22,7 +22,7 @@ const RecurringIncome = () => {
           <TableRow>
             <TableHead>Title</TableHead>
             <TableHead>Category</TableHead>
-            <TableHead>Reciving Date</TableHead>
+            <TableHead>Receiving Date</TableHead>
             <TableHead className="text-right">Amount</TableHead>
             <TableHead></TableHead>
             <TableHead></TableHead>

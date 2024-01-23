@@ -1,9 +1,10 @@
+import { AddIncomeForm } from '@/components/forms/finance/income/AddIncomeForm'
 import React from 'react'
 
 const IncomeSource = () => {
   return (
     <div>
-        IncomeSource
+        <AddIncomeForm />
     </div>
   )
 }
