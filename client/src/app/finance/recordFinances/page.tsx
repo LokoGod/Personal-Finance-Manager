@@ -79,7 +79,7 @@ const RecordFinances = async () => {
 
       <h2 className="text-3xl font-bold tracking-tight mb-2">Record</h2>
       <Tabs defaultValue="expenses">
-        <Card className="w-fit mb-2">
+        <Card className="w-fit mb-5">
           <TabsList>
             <TabsTrigger value="expenses">Expenses</TabsTrigger>
             <TabsTrigger value="income">Income</TabsTrigger>
@@ -95,29 +95,34 @@ const RecordFinances = async () => {
         <TabsContent value="expenses"></TabsContent>
 
         <TabsContent value="income">
-          <div className="flex justify-center gap-2">
-            <div>
-              <Card>
-                <CardHeader className="text-xl font-semibold">
-                  Reported Income
-                </CardHeader>
-                <CardContent>
-                  <ReportedIncome />
-                </CardContent>
-              </Card>
-            </div>
+        <div className="flex justify-end mb-5">
+  <Button className="">Add income source</Button>
+</div>
 
-            <div className="">
-              <Card>
-                <CardHeader className="text-xl font-semibold">
-                  Reccuring Income
-                </CardHeader>
-                <CardContent>
-                  <RecurringIncome />
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+<div className="flex flex-col md:flex-row md:justify-center gap-2">
+  <div className="mb-4 md:mb-0">
+    <Card>
+      <CardHeader className="text-xl font-semibold">
+        Reported Income
+      </CardHeader>
+      <CardContent>
+        <ReportedIncome />
+      </CardContent>
+    </Card>
+  </div>
+
+  <div>
+    <Card>
+      <CardHeader className="text-xl font-semibold">
+        Recurring Income
+      </CardHeader>
+      <CardContent>
+        <RecurringIncome />
+      </CardContent>
+    </Card>
+  </div>
+</div>
+
         </TabsContent>
 
         <TabsContent value="receivables"></TabsContent>
