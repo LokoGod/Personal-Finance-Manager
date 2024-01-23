@@ -25,6 +25,8 @@ import {
   incomeColumn,
   IncomeColumnType,
 } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
+import RecurringIncome from "@/components/tables/normalTables/finance/income/recurringIncome";
+import ReportedIncome from "@/components/tables/normalTables/finance/income/reportedIncome";
 
 async function getData(): Promise<IncomeColumnType[]> {
   return [
@@ -93,26 +95,25 @@ const RecordFinances = async () => {
         <TabsContent value="expenses"></TabsContent>
 
         <TabsContent value="income">
-
-          <div className="flex justify-center gap-12">
+          <div className="flex justify-center gap-20">
             <div className="">
               <Card>
-                <CardHeader className="text-2xl font-semibold">
-                    Recurring Income
+                <CardHeader className="text-xl font-semibold">
+                    Reccuring Income
                 </CardHeader>
                 <CardContent>
-                  <DataTable columns={incomeColumn} data={data} />
+                  <RecurringIncome />
                 </CardContent>
               </Card>
             </div>
 
-            <div className="">
+            <div>
               <Card>
-              <CardHeader className="text-2xl font-semibold">
+              <CardHeader className="text-xl font-semibold">
                     Reported Income
                 </CardHeader>
                 <CardContent>
-                  <DataTable columns={incomeColumn} data={data} />
+                  <ReportedIncome />
                 </CardContent>
               </Card>
             </div>
