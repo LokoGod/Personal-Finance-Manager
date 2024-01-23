@@ -22,15 +22,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch"
+import { Switch } from "@/components/ui/switch";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { DatePickerDemo } from "../../DatePicker";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  incomeTitle: z.string().min(2, {
+    message: "Title must be at least 2 characters.",
   }),
+  incomeCategory: z.string({
+    required_error: "Please select a category!",
+  }),
+  recurringIncome: z.boolean().default(false).optional(),
+  setReceivingDate: z.date().optional(),
 });
 
 export function AddIncomeForm() {
@@ -38,7 +43,8 @@ export function AddIncomeForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      incomeTitle: "",
+      incomeCategory: "",
     },
   });
 
@@ -59,7 +65,7 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="incomeTitle"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Title</FormLabel>
@@ -67,7 +73,7 @@ export function AddIncomeForm() {
                         <Input placeholder="shadcn" {...field} />
                       </FormControl>
                       <FormDescription>
-                        This is your public display name.
+                        This is your public title name.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -77,12 +83,12 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="incomeCategory"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Category</FormLabel>
                       <FormControl>
-                        <Select>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <SelectTrigger className="">
                             <SelectValue placeholder="Theme" />
                           </SelectTrigger>
@@ -101,16 +107,16 @@ export function AddIncomeForm() {
                   )}
                 />
               </div>
-              
+
               <div className="">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="recurringIncome"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Reccuring ?</FormLabel>
                       <FormControl>
-                      <Switch />
+                        <Switch checked={field.value} onCheckedChange={field.onChange} />
                       </FormControl>
                       <FormDescription>
                         This is your public display name.
@@ -124,12 +130,12 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="setReceivingDate"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Set future date ?</FormLabel>
                       <FormControl>
-                      <DatePickerDemo />
+                        <DatePickerDemo field={field} />
                       </FormControl>
                       <FormDescription>
                         This is your public display name.
