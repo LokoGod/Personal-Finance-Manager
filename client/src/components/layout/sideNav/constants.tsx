@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
 import { LuUser } from "react-icons/lu";
+import { GrMoney } from "react-icons/gr";
 
 import { SideNavItem } from './types';
 
@@ -12,7 +13,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Human Resource',
     path: '/humanResource/',
-    icon: <LuUser width="16" height="16" />,
+    icon: <LuUser width="16" height="16" className="text-amber-500" />,
     submenu: true,
     subMenuItems: [
       { title: 'Overview', path: '/humanResource/overview' },
@@ -25,6 +26,15 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: 'Messages',
     path: '/messages',
     icon: <Icon icon="lucide:mail" width="16" height="16" />,
+  },
+  {
+    title: 'Finance',
+    path: '/finance/',
+    icon: <GrMoney width="16" height="16" className="text-lime-500" />,
+    submenu: true,
+    subMenuItems: [
+      { title: 'Overview', path: '/finance/overview' },
+    ],
   },
   {
     title: 'Settings',
