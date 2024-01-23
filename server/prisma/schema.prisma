@@ -11,38 +11,37 @@ datasource db {
   relationMode = "prisma"
 }
 
-model Payroll {
-  id                Int                 @id @default(autoincrement())
-  title             String              @unique
-  base_salary_type  String
-  cycle_description String
-  payroll_addition  Payroll_addition[]
-  payroll_deduction Payroll_deduction[]
-  payroll_overtime  Payroll_overtime[]
+model Income {
+  details    Income_Details  @relation(fields: [detailId], references: [id])
+  detailId   Int
+  category   Income_Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([detailId, categoryId])
 }
 
-model Payroll_addition {
-  id                  Int     @id @default(autoincrement())
-  addition_cat        String  @unique
-  addition_percentage Int
-  payroll             Payroll @relation(fields: [payrollId], references: [id])
-  payrollId           Int
+model Income_Details {
+  id            Int    @id @default(autoincrement())
+  income_title  String
+  income_amount Float
+  Income Income[]
 }
 
-model Payroll_deduction {
-  id                   Int     @id @default(autoincrement())
-  deduction_cat        String  @unique
-  deduction_percentage Int
-  payroll              Payroll @relation(fields: [payrollId], references: [id])
-  payrollId            Int
+model Income_Category {
+  id         Int      @id @default(autoincrement())
+  income_cat String
+  Income     Income[]
 }
 
-model Payroll_overtime {
-  id             Int     @id @default(autoincrement())
-  calculate_rate Int
-  payroll        Payroll @relation(fields: [payrollId], references: [id])
-  payrollId      Int
+model Expense {
+  id             Int      @id @default(autoincrement())
+  expense_cat    String
+  expense_title  String
+  expense_amount Float
+  submitted_date DateTime
 }
 
-// Need to define the relations
+model Expense_Category {
+  id Int @id @default(autoincrement())
+}
 
