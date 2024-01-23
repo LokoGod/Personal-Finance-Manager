@@ -34,6 +34,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: 'Overview', path: '/finance/overview' },
+      { title: 'Record finances', path: '/finance/recordFinances' },
     ],
   },
   {
