@@ -12,25 +12,25 @@ datasource db {
 }
 
 model Income {
-  details    Income_Details  @relation(fields: [detailId], references: [id])
+  details    IncomeDetails  @relation(fields: [detailId], references: [id])
   detailId   Int
-  category   Income_Category @relation(fields: [categoryId], references: [id])
+  category   IncomeCategory @relation(fields: [categoryId], references: [id])
   categoryId Int
 
   @@id([detailId, categoryId])
 }
 
-model Income_Details {
-  id            Int    @id @default(autoincrement())
+model IncomeDetails {
+  id            Int      @id @default(autoincrement())
   income_title  String
   income_amount Float
-  Income Income[]
+  income        Income[]
 }
 
-model Income_Category {
+model IncomeCategory {
   id         Int      @id @default(autoincrement())
   income_cat String
-  Income     Income[]
+  income     Income[]
 }
 
 model Expense {
@@ -41,7 +41,6 @@ model Expense {
   submitted_date DateTime
 }
 
-model Expense_Category {
+model ExpenseCategory {
   id Int @id @default(autoincrement())
 }
-

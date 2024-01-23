@@ -5,7 +5,7 @@ const getAllRecordedIncome = async () => {
     return prisma.income.findMany()
 }
 
-const postIncome = async () => {
+const createIncome = async () => {
     
 }
 
