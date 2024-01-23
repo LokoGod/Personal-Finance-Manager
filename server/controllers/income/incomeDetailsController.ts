@@ -18,7 +18,7 @@ const createIncomeDetails = async (req: any, res: any) => {
       income_title,
       income_amount
     );
-    res(201).json({ incomeDetails });
+    res.status(201).json({ incomeDetails });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
