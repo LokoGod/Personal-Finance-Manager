@@ -25,7 +25,7 @@ model IncomeDetails {
   id            Int      @id @default(autoincrement())
   income_title  String
   income_amount Float
-  received_date DateTime @default(now())
+  // recurring Boolean
   income        Income[]
 }
 
