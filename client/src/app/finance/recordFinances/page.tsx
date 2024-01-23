@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -20,39 +21,12 @@ import { Button } from "@/components/ui/button";
 import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
-import { DataTable } from "@/components/tables/dataTables/finance/incomeTable/incomeDataTable";
-import {
-  incomeColumn,
-  IncomeColumnType,
-} from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
+
 import RecurringIncome from "@/components/tables/normalTables/finance/income/RecurringIncome";
 import ReportedIncome from "@/components/tables/normalTables/finance/income/ReportedIncome";
 
-async function getData(): Promise<IncomeColumnType[]> {
-  return [
-    {
-      id: "12Abc3F4e5D",
-      title: "Intern",
-      frequency: "Monthly Compensation",
-      employees: 20,
-    },
-    {
-      id: "12Abc3F4e5C",
-      title: "Temp",
-      frequency: "Weekly Compensation",
-      employees: 52,
-    },
-    {
-      id: "12Abc3F4e5A",
-      title: "Permenant",
-      frequency: "Monthly Compensation",
-      employees: 100,
-    },
-  ];
-}
 
 const RecordFinances = async () => {
-  const data = await getData();
 
   return (
     <div>
@@ -95,34 +69,38 @@ const RecordFinances = async () => {
         <TabsContent value="expenses"></TabsContent>
 
         <TabsContent value="income">
-        <div className="flex justify-end mb-5">
-  <Button className="">Add income source</Button>
-</div>
+          <div className="flex justify-end mb-5">
+            <Button className="" asChild>
+                <Link href={"/finance/recordFinances/incomeSource"}>
+                <IoIosAdd />
+                Add income source
+                </Link>
+                </Button>
+          </div>
 
-<div className="flex flex-col md:flex-row md:justify-center gap-2">
-  <div className="mb-4 md:mb-0">
-    <Card>
-      <CardHeader className="text-xl font-semibold">
-        Reported Income
-      </CardHeader>
-      <CardContent>
-        <ReportedIncome />
-      </CardContent>
-    </Card>
-  </div>
+          <div className="flex flex-col md:flex-row md:justify-center gap-2">
+            <div className="mb-4 md:mb-0">
+              <Card>
+                <CardHeader className="text-xl font-semibold">
+                  Reported Income
+                </CardHeader>
+                <CardContent>
+                  <ReportedIncome />
+                </CardContent>
+              </Card>
+            </div>
 
-  <div>
-    <Card>
-      <CardHeader className="text-xl font-semibold">
-        Recurring Income
-      </CardHeader>
-      <CardContent>
-        <RecurringIncome />
-      </CardContent>
-    </Card>
-  </div>
-</div>
-
+            <div>
+              <Card>
+                <CardHeader className="text-xl font-semibold">
+                  Recurring Income
+                </CardHeader>
+                <CardContent>
+                  <RecurringIncome />
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </TabsContent>
 
         <TabsContent value="receivables"></TabsContent>
