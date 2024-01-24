@@ -4,5 +4,4 @@ Gray/Slate - 500/600/700
 lime - 400
 destructive(shadui red)
 
-sky
-indigo
+bruh
