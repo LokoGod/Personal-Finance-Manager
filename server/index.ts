@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API routing
-app.use("/api/v1/incomeDetails", incomeDetailsRoutes)
+app.use("/api/v1/incomeDetails", incomeDetailsRoutes);
 
 const port = process.env.PORT || 9000;
 
