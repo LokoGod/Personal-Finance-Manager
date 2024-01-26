@@ -25,4 +25,15 @@ const createIncomeDetails = async (req: any, res: any) => {
   }
 };
 
-export { allRecordedIncomeDetails, createIncomeDetails };
+const specificIncomeDetails = async (req: any, res: any) => {
+  try {
+    const { id } = req.params;
+    const incomeDetails = await incomeDetailsRepository.getSpecificIncomeDetails(id);
+    res.status(200).json({ incomeDetails });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export { allRecordedIncomeDetails, createIncomeDetails, specificIncomeDetails };
