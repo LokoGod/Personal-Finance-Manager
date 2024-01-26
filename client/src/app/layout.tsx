@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/react';
+
 import { Providers } from "./chakraUi/providers";
 
 import "./styles/globals.css";
@@ -32,7 +35,11 @@ export default function RootLayout({
               <MarginWidthWrapper>
                 <Header />
                 <HeaderMobile />
-                <PageWrapper>{children}</PageWrapper>
+                <PageWrapper>
+                  {children}
+                  <SpeedInsights />
+                  <Analytics />
+                </PageWrapper>
               </MarginWidthWrapper>
             </main>
           </div>
