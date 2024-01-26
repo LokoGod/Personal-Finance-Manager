@@ -71,7 +71,7 @@ const Home = () => {
         </TabsContent>
 
         <TabsContent value="analytics">
-<h1>Hello, there!</h1>
+          <h1>Hello, there!</h1>
         </TabsContent>
       </Tabs>
     </div>
