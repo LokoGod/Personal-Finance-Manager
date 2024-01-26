@@ -41,10 +41,10 @@ const RecordFinances = async () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/finances">Finances</BreadcrumbLink>
+            <BreadcrumbLink href="/finance">Finances</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem className="text-blue-600">
-            <BreadcrumbLink href="/finances/Record Finances">
+            <BreadcrumbLink href="/finance/recordFinances">
               Record Finances
             </BreadcrumbLink>
           </BreadcrumbItem>
