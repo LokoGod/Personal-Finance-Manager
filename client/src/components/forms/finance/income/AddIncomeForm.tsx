@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { DatePickerDemo } from "../../DatePicker";
 
 const formSchema = z.object({
@@ -58,7 +58,9 @@ export function AddIncomeForm() {
   return (
     <div className="">
       <Card>
-        <CardHeader>Fomr</CardHeader>
+        <CardHeader>
+          <CardDescription>Enter the details of the recieved income</CardDescription>
+        </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -70,10 +72,10 @@ export function AddIncomeForm() {
                     <FormItem>
                       <FormLabel>Title</FormLabel>
                       <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                        <Input placeholder="Shoping discount surplus" {...field} />
                       </FormControl>
                       <FormDescription>
-                        This is your public title name.
+                        Explain the income breifly.
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -100,7 +102,7 @@ export function AddIncomeForm() {
                         </Select>
                       </FormControl>
                       <FormDescription>
-                        This is your public display name.
+                        Categorize the income source
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -115,11 +117,11 @@ export function AddIncomeForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Reccuring ?</FormLabel>
-                      <FormControl>
-                        <Switch checked={field.value} onCheckedChange={field.onChange} />
+                      <FormControl className="flex">                     
+                        <Switch checked={field.value} onCheckedChange={field.onChange} />                  
                       </FormControl>
                       <FormDescription>
-                        This is your public display name.
+                        Tick if the income will keep happening
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -134,19 +136,18 @@ export function AddIncomeForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Set future date ?</FormLabel>
-                      <FormControl>
+                      <FormControl className="flex">
+                        <div>
                         <DatePickerDemo field={field} />
+                        </div>
                       </FormControl>
-                      <FormDescription>
-                        This is your public display name.
-                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Add</Button>
             </form>
           </Form>
         </CardContent>

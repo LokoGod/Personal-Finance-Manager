@@ -46,6 +46,7 @@ const IncomeSource = () => {
       <h2 className="text-3xl font-bold tracking-tight mb-2">Add Source</h2>
 
       <AddIncomeForm />
+      
     </div>
   );
 };
