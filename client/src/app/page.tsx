@@ -69,6 +69,10 @@ const Home = () => {
             </Card>
           </div>
         </TabsContent>
+
+        <TabsContent value="analytics">
+<h1>Hello, there!</h1>
+        </TabsContent>
       </Tabs>
     </div>
   );
