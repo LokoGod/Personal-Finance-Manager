@@ -24,9 +24,35 @@ import { FaHouseChimney } from "react-icons/fa6";
 
 import RecurringIncome from "@/components/tables/normalTables/finance/income/RecurringIncome";
 import ReportedIncome from "@/components/tables/normalTables/finance/income/ReportedIncome";
+import { DataTable } from "@/components/tables/dataTables/finance/incomeTable/incomeDataTable";
+import { IncomeColumnType, incomeColumn } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
+async function getIncomeData(): Promise<IncomeColumnType[]> {
+  return [
+    {
+      id: "12Abc3F4e5D",
+      title: "Intern",
+      frequency: "Monthly Compensation",
+      employees: 20,
+    },
+    {
+      id: "12Abc3F4e5C",
+      title: "Temp",
+      frequency: "Weekly Compensation",
+      employees: 52,
+    },
+    {
+      id: "12Abc3F4e5A",
+      title: "Permenant",
+      frequency: "Monthly Comp",
+      employees: 100,
+    },
+  ];
+}
 
 const RecordFinances = async () => {
+
+  const incomeData = await getIncomeData();
 
   return (
     <div>
@@ -78,7 +104,7 @@ const RecordFinances = async () => {
                 </Button>
           </div>
 
-          <div className="flex flex-col md:flex-row md:justify-center gap-2">
+          {/* <div className="flex flex-col md:flex-row md:justify-center gap-2">
             <div className="mb-4 md:mb-0">
               <Card>
                 <CardHeader className="text-xl font-semibold">
@@ -100,7 +126,11 @@ const RecordFinances = async () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
+          </div> */}
+
+         
+
+          <DataTable columns={incomeColumn} data={incomeData} />
         </TabsContent>
 
         <TabsContent value="receivables"></TabsContent>
