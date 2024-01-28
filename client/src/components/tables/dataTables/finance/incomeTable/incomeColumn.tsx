@@ -22,8 +22,9 @@ import { LuArrowUpDown } from "react-icons/lu";
 export type IncomeColumnType = {
   id: string;
   title: string;
-  frequency: string;
-  employees: number;
+  category: string;
+  receivingDate: string,
+  amount: number;
 };
 
 // Defining the clolumns
@@ -43,7 +44,7 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
     },
   },
   {
-    accessorKey: "frequency",
+    accessorKey: "category",
     header: ({ column }) => {
       return (
         <div className="">
@@ -51,7 +52,7 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Frequency
+            Category
             <LuArrowUpDown className="ml-1 h-4 w-4" />
           </Button>
         </div>
@@ -59,12 +60,20 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
     },
   },
   {
+    header: "Receiving Date",
+    accessorKey: "receivingDate"
+  },
+  {
     // formated the amount cell to display the dollar amount, also aligned the cell to the right.
-    accessorKey: "employees",
-    header: () => <div className="text-right">Employees</div>,
+    accessorKey: "amount",
+    header: () => <div className="text-right">Amount</div>,
     cell: ({ row }) => {
-      const employees = parseFloat(row.getValue("employees"));
-      return <div className="text-right font-medium">{employees}</div>;
+      const amount = parseFloat(row.getValue("amount"));
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "LKR",
+      }).format(amount)
+      return <div className="text-right font-medium">{formatted}</div>;
     },
   },
   {

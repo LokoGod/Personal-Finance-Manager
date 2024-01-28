@@ -31,21 +31,24 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
   return [
     {
       id: "12Abc3F4e5D",
-      title: "Intern",
-      frequency: "Monthly Compensation",
-      employees: 20,
+      title: "Intern Allowance",
+      category: "Day Job Allowance",
+      receivingDate: "2023/09/01",
+      amount: 20500,
     },
     {
       id: "12Abc3F4e5C",
-      title: "Temp",
-      frequency: "Weekly Compensation",
-      employees: 52,
+      title: "Family Allowance",
+      category: "Family Pocket Money",
+      receivingDate: "2024/04/02",
+      amount: 52510,
     },
     {
       id: "12Abc3F4e5A",
-      title: "Permenant",
-      frequency: "Monthly Comp",
-      employees: 100,
+      title: "Side Project",
+      category: "PearlWave Labs SideGig",
+      receivingDate: "2025/10/11",
+      amount: 100000,
     },
   ];
 }
@@ -103,34 +106,10 @@ const RecordFinances = async () => {
                 </Link>
                 </Button>
           </div>
-
-          {/* <div className="flex flex-col md:flex-row md:justify-center gap-2">
-            <div className="mb-4 md:mb-0">
-              <Card>
-                <CardHeader className="text-xl font-semibold">
-                  Reported Income
-                </CardHeader>
-                <CardContent>
-                  <ReportedIncome />
-                </CardContent>
-              </Card>
-            </div>
-
-            <div>
-              <Card>
-                <CardHeader className="text-xl font-semibold">
-                  Recurring Income
-                </CardHeader>
-                <CardContent>
-                  <RecurringIncome />
-                </CardContent>
-              </Card>
-            </div>
-          </div> */}
-
          
 
           <DataTable columns={incomeColumn} data={incomeData} />
+
         </TabsContent>
 
         <TabsContent value="receivables"></TabsContent>
