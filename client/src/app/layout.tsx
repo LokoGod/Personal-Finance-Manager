@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { Providers } from "./chakraUi/providers";
 
 import "./styles/globals.css";
-import QueryProvider from "@/utils/QueryProvider";
 import Header from "@/components/layout/header/Header";
 import HeaderMobile from "@/components/layout/header/HeaderMobile";
 import SideNav from "@/components/layout/sideNav/SideNav";
@@ -37,10 +36,8 @@ export default function RootLayout({
               <MarginWidthWrapper>
                 <Header />
                 <HeaderMobile />
-                <PageWrapper>
-                  <QueryProvider>
-                  {children}
-                  </QueryProvider>
+                <PageWrapper>      
+                  {children}           
                   <SpeedInsights />
                   <Analytics />
                 </PageWrapper>
