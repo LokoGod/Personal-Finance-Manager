@@ -143,6 +143,9 @@ logIncomeData();
                 <li>
                   {income.received_date}
                 </li>
+                <li>
+                  {income.received_date}
+                </li>
                 </ul>;
             })}
           </div>
