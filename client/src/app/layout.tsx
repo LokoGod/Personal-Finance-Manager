@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 
@@ -20,12 +22,15 @@ export const metadata: Metadata = {
   description: "Created by pearl-wave",
 };
 
+const queryClient = new QueryClient()
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
+    <QueryClientProvider client={queryClient}>
     <html lang="en">
       <body className={inter.className}>
         <Providers>
@@ -46,5 +51,6 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
+    </QueryClientProvider>
   );
 }

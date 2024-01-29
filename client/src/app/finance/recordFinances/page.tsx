@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
+import { useQueries, useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -27,7 +30,17 @@ import ReportedIncome from "@/components/tables/normalTables/finance/income/Repo
 import { DataTable } from "@/components/tables/dataTables/finance/incomeTable/incomeDataTable";
 import { IncomeColumnType, incomeColumn } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
+
 async function getIncomeData(): Promise<IncomeColumnType[]> {
+
+  // const {data} = useQuery({
+  //   queryFn: async () => {
+  //     const { data } = await axios.get('localhost:5000/api/v1/income')
+  //     return data as IncomeColumnType
+  //   }
+  // })
+
+
   return [
     {
       id: "12Abc3F4e5D",
