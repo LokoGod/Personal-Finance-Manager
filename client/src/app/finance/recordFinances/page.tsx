@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
 
-import { useQueries, useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
@@ -56,7 +53,6 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
     },
   ];
 }
-
 
 
 const RecordFinances = async () => {
