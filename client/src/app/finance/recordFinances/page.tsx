@@ -66,6 +66,20 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
   ];
 }
 
+const fetchIncomeData = () => {
+  const { isPending, error, data, isFetching} = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () => {
+      axios.get('localhost:5000/api/v1/income').then((res) => res.data)
+    }
+  })
+
+  if (isPending) return 'Loading...'
+
+  if (error) return 'An error has occured: ' + error
+}
+
+
 const RecordFinances = async () => {
 
   const incomeData = await getIncomeData();

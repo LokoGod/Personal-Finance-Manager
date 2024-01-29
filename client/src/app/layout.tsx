@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 
 import { Providers } from "./chakraUi/providers";
 
 import "./styles/globals.css";
+import QueryProvider from "@/utils/QueryProvider";
 import Header from "@/components/layout/header/Header";
 import HeaderMobile from "@/components/layout/header/HeaderMobile";
 import SideNav from "@/components/layout/sideNav/SideNav";
@@ -22,7 +21,6 @@ export const metadata: Metadata = {
   description: "Created by pearl-wave",
 };
 
-const queryClient = new QueryClient()
 
 export default function RootLayout({
   children,
@@ -30,7 +28,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <QueryClientProvider client={queryClient}>
     <html lang="en">
       <body className={inter.className}>
         <Providers>
@@ -41,7 +38,9 @@ export default function RootLayout({
                 <Header />
                 <HeaderMobile />
                 <PageWrapper>
+                  <QueryProvider>
                   {children}
+                  </QueryProvider>
                   <SpeedInsights />
                   <Analytics />
                 </PageWrapper>
@@ -51,6 +50,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-    </QueryClientProvider>
   );
 }
