@@ -1,40 +1,21 @@
 import React from "react";
 
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
-const apiRoute = "localhost:5000/api/v1/income";
-
-interface Incomes {
-  id: number;
-  income_title: string;
-  income_amount: number;
-  // recurring Boolean
-  received_date: Date;
-  categoryId: number;
+const getIncomeData = async () => {
+  return await axios.get('localhost:5000/api/v1/income')
 }
 
-const getIncome = async () => {
-  return await axios.get(apiRoute).then((res) => res.data.results);
-};
-
-const { isLoading, data } = useQuery<Incomes[]>({
-  queryKey: ["income"],
-  queryFn: getIncome,
-});
-
 const Overview = () => {
+  // const { data, error } = useQuery({
+  //   queryKey: ["income"],
+  //   queryFn: getIncomeData,
+  // })
+  
   return (
     <div>
-      {/* {isLoading ? (
-        <h1 className="loading">Loading...</h1>
-      ) : (
-        <>
-          {(data ?? []).length > 0 &&
-            (data ?? []).map((income) => <Income key={income.id} {...income} />)}
-        </>
-      )} */}
-      <p>hello</p>
+
     </div>
   );
 };
