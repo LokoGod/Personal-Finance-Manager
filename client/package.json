@@ -27,6 +27,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@tanstack/react-query": "^5.17.19",
     "@tanstack/react-table": "^8.11.3",
     "@vercel/analytics": "^1.1.2",
     "@vercel/speed-insights": "^1.0.8",
@@ -47,6 +48,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.17.22",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
