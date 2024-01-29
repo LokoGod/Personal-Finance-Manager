@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 // Import custom routes
-import { incomeDetailsRoutes } from "./routes/income/incomeDetailsRoutes";
+import { incomeRoutes } from "./routes/income/incomeRoutes";
 import { incomeCategoryRoutes } from "./routes/income/incomeCategoryRoutes";
 
 // Instances
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API routing
-app.use("/api/v1/incomeDetails", incomeDetailsRoutes);
+app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/incomeCategories", incomeCategoryRoutes)
 
 const port = process.env.PORT || 9000;
