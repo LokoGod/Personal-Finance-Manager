@@ -25,8 +25,10 @@ import { FaHouseChimney } from "react-icons/fa6";
 import RecurringIncome from "@/components/tables/normalTables/finance/income/RecurringIncome";
 import ReportedIncome from "@/components/tables/normalTables/finance/income/ReportedIncome";
 import { DataTable } from "@/components/tables/dataTables/finance/incomeTable/incomeDataTable";
-import { IncomeColumnType, incomeColumn } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
-
+import {
+  IncomeColumnType,
+  incomeColumn,
+} from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
 async function getIncomeData(): Promise<IncomeColumnType[]> {
   return [
@@ -54,10 +56,7 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
   ];
 }
 
-
 const RecordFinances = async () => {
- 
-
   const incomeData = await getIncomeData();
 
   return (
@@ -103,16 +102,14 @@ const RecordFinances = async () => {
         <TabsContent value="income">
           <div className="flex justify-end mb-5">
             <Button className="" asChild>
-                <Link href={"/finance/recordFinances/incomeSource"}>
+              <Link href={"/finance/recordFinances/incomeSource"}>
                 <IoIosAdd />
                 Add income source
-                </Link>
-                </Button>
+              </Link>
+            </Button>
           </div>
-         
 
           <DataTable columns={incomeColumn} data={incomeData} />
-
         </TabsContent>
 
         <TabsContent value="receivables"></TabsContent>
