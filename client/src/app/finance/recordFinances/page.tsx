@@ -41,21 +41,21 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
 
   // return [
   //   {
-  //     id: "12Abc3F4e5D",
+  //     id: "1",
   //     title: "Intern Allowance",
   //     category: "Day Job Allowance",
   //     receivingDate: "2023/09/01",
   //     amount: 20500,
   //   },
   //   {
-  //     id: "12Abc3F4e5C",
+  //     id: "2",
   //     title: "Family Allowance",
   //     category: "Family Pocket Money",
   //     receivingDate: "2024/04/02",
   //     amount: 52510,
   //   },
   //   {
-  //     id: "12Abc3F4e5A",
+  //     id: "3",
   //     title: "Side Project",
   //     category: "PearlWave Labs SideGig",
   //     receivingDate: "2025/10/11",

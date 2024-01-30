@@ -3,7 +3,11 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const getAllRecordedIncome = async () => {
-  return prisma.income.findMany();
+  return prisma.income.findMany({
+    include: {
+      category: true
+    }
+  });
 };
 
 const postIncome = async (

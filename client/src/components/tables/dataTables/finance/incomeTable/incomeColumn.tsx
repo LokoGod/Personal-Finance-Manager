@@ -21,16 +21,16 @@ import { LuArrowUpDown } from "react-icons/lu";
 // You can use a Zod schema here if you want.
 export type IncomeColumnType = {
   id: string;
-  title: string;
-  category: string;
-  receivingDate: string,
-  amount: number;
+  income_title: string;
+  income_amount: number;
+  receiving_date: string,
+  categoryId: number;
 };
 
 // Defining the clolumns
 export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
   {
-    accessorKey: "title",
+    accessorKey: "income_title",
 
     header: ({ column }) => {
       return <div className="text-blue-600">Title</div>;
@@ -38,13 +38,13 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
     cell: ({ row }) => {
       return (
         <a href="#" className="font-medium hover:underline">
-          {row.getValue("title")}
+          {row.getValue("income_title")}
         </a>
       );
     },
   },
   {
-    accessorKey: "category",
+    accessorKey: "categoryId",
     header: ({ column }) => {
       return (
         <div className="">
@@ -61,14 +61,14 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
   },
   {
     header: "Receiving Date",
-    accessorKey: "receivingDate"
+    accessorKey: "receiving_date"
   },
   {
     // formated the amount cell to display the dollar amount, also aligned the cell to the right.
-    accessorKey: "amount",
+    accessorKey: "income_amount",
     header: () => <div className="text-right">Amount</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
+      const amount = parseFloat(row.getValue("income_amount"));
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "LKR",
