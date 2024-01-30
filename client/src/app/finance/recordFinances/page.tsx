@@ -31,37 +31,13 @@ import {
 } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
 async function getIncomeData(): Promise<IncomeColumnType[]> {
-  const response = await fetch("http://localhost:5000/api/v1/income/");
+  const response = await fetch("http://localhost:5000/api/v1/income/", {cache: "no-cache"});
 
   if (!response.ok) {
     throw new Error("failed to fetch data");
   }
   const data = await response.json()
   return data.income
-
-  // return [
-  //   {
-  //     id: "1",
-  //     title: "Intern Allowance",
-  //     category: "Day Job Allowance",
-  //     receivingDate: "2023/09/01",
-  //     amount: 20500,
-  //   },
-  //   {
-  //     id: "2",
-  //     title: "Family Allowance",
-  //     category: "Family Pocket Money",
-  //     receivingDate: "2024/04/02",
-  //     amount: 52510,
-  //   },
-  //   {
-  //     id: "3",
-  //     title: "Side Project",
-  //     category: "PearlWave Labs SideGig",
-  //     receivingDate: "2025/10/11",
-  //     amount: 100000,
-  //   },
-  // ];
 }
 
 const RecordFinances = async () => {
@@ -142,6 +118,9 @@ logIncomeData();
                 </li>
                 <li>
                   {income.received_date}
+                </li>
+                <li>
+                  {income.category?.income_cat}
                 </li>
                 </ul>;
             })}

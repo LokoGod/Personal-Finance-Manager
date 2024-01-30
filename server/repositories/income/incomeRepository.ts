@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 const getAllRecordedIncome = async () => {
   return prisma.income.findMany({
     include: {
-      category: true
-    }
+      category: true,
+    },
   });
 };
 
@@ -16,11 +16,16 @@ const postIncome = async (
   received_date: Date,
   categoryId: number
 ) => {
-  return prisma.income.create({ data: { income_title, income_amount, received_date, categoryId } });
+  return prisma.income.create({
+    data: { income_title, income_amount, received_date, categoryId },
+  });
 };
 
 const getSpecificIncome = async (id: number) => {
-  return prisma.income.findUniqueOrThrow({ where: { id: Number(id) } });
+  return prisma.income.findUniqueOrThrow({
+    where: { id: Number(id) },
+    include: { category: true },
+  });
 };
 
 const incomeRepository = {
