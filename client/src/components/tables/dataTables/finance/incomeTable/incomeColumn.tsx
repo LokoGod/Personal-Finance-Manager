@@ -25,6 +25,7 @@ export type IncomeColumnType = {
   income_amount: number;
   receiving_date: string,
   categoryId: number;
+  income_cat: string
 };
 
 // Defining the clolumns
@@ -57,6 +58,14 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
           </Button>
         </div>
       );
+    },
+    cell: ({ row }) => {
+      return( 
+      <div>
+        <div>{row.getValue("categoryId")}</div>
+        <div>{row.getValue("income_cat")}</div>
+      </div>
+      )// Display the income category in the cell
     },
   },
   {
