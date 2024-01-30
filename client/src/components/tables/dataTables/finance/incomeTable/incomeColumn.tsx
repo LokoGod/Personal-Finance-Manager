@@ -63,7 +63,6 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
       return( 
       <div>
         <div>{row.getValue("categoryId")}</div>
-        <div>{row.getValue("category.income_cat")}</div>
       </div>
       )// Display the income category in the cell
     },
