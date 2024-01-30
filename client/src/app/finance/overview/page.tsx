@@ -30,7 +30,6 @@ const Overview = async () => {
           <p>Income Title: {item.income_title}</p>
           <p>Income Amount: {item.income_amount}</p>
           <p>Received Date: {item.received_date}</p>
-          <p>Income Category:{item.category.income_cat}</p> {/* Add this line to display the income_cat */}
         </div>
       ))}
     </div>
