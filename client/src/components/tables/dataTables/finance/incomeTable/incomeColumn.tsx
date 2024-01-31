@@ -45,7 +45,7 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
     },
   },
   {
-    accessorKey: "categoryId",
+    accessorKey: "category.income_cat",
     header: ({ column }) => {
       return (
         <div className="">
@@ -59,17 +59,17 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
         </div>
       );
     },
-    cell: ({ row }) => {
-      return( 
-      <div>
-        <div>{row.getValue("categoryId")}</div>
-      </div>
-      )// Display the income category in the cell
-    },
+    // cell: ({ row }) => {
+    //   return( 
+    //   <div>
+    //     <div>{row.getValue("income_cat")}</div>
+    //   </div>
+    //   )// Display the income category in the cell
+    // },
   },
   {
     header: "Receiving Date",
-    accessorKey: "receiving_date"
+    accessorKey: "received_date"
   },
   {
     // formated the amount cell to display the dollar amount, also aligned the cell to the right.

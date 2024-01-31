@@ -120,7 +120,7 @@ logIncomeData();
                   {income.received_date}
                 </li>
                 <li>
-                  {income.category?.income_cat}
+                  {income.category.income_cat}
                 </li>
                 </ul>;
             })}
