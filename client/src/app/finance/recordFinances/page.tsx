@@ -104,28 +104,6 @@ logIncomeData();
             </Button>
           </div>
 
-          <div>
-            {(incomeData).map((income: any) => {
-              return <ul key={income.id} className="flex gap-2">
-                <li>
-                  {income.income_title}
-                </li>
-                <li>
-                  {income.income_amount}
-                </li>
-                <li>
-                  {income.categoryId}
-                </li>
-                <li>
-                  {income.received_date}
-                </li>
-                <li>
-                  {income.category.income_cat}
-                </li>
-                </ul>;
-            })}
-          </div>
-
           <DataTable columns={incomeColumn} data={incomeData} />
         </TabsContent>
 

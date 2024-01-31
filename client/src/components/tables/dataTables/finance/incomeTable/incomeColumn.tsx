@@ -59,17 +59,15 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
         </div>
       );
     },
-    // cell: ({ row }) => {
-    //   return( 
-    //   <div>
-    //     <div>{row.getValue("income_cat")}</div>
-    //   </div>
-    //   )// Display the income category in the cell
-    // },
   },
   {
-    header: "Receiving Date",
-    accessorKey: "received_date"
+    accessorKey: "received_date",
+    header: () => <div>Received Date</div>,
+    cell: ({ row }) => {
+      const date: string = row.getValue("received_date");
+      const formatted  = date.slice(0, 10)
+      return <div className="font-semibold">{formatted}</div>;
+    },
   },
   {
     // formated the amount cell to display the dollar amount, also aligned the cell to the right.
