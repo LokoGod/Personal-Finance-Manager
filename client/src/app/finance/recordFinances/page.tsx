@@ -31,52 +31,17 @@ import {
 } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
 async function getIncomeData(): Promise<IncomeColumnType[]> {
-  const response = await fetch("http://localhost:5000/api/v1/income/");
+  const response = await fetch("http://localhost:5000/api/v1/income/", { next: { revalidate: 3600 } });
 
   if (!response.ok) {
     throw new Error("failed to fetch data");
   }
   const data = await response.json()
   return data.income
-
-  // return [
-  //   {
-  //     id: "12Abc3F4e5D",
-  //     title: "Intern Allowance",
-  //     category: "Day Job Allowance",
-  //     receivingDate: "2023/09/01",
-  //     amount: 20500,
-  //   },
-  //   {
-  //     id: "12Abc3F4e5C",
-  //     title: "Family Allowance",
-  //     category: "Family Pocket Money",
-  //     receivingDate: "2024/04/02",
-  //     amount: 52510,
-  //   },
-  //   {
-  //     id: "12Abc3F4e5A",
-  //     title: "Side Project",
-  //     category: "PearlWave Labs SideGig",
-  //     receivingDate: "2025/10/11",
-  //     amount: 100000,
-  //   },
-  // ];
 }
 
 const RecordFinances = async () => {
   const incomeData = await getIncomeData();
-  
-  async function logIncomeData() {
-    try {
-      const incomeData = await getIncomeData();
-      console.log(incomeData);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-logIncomeData();
 
   return (
     <div>
@@ -126,12 +91,6 @@ logIncomeData();
                 Add income source
               </Link>
             </Button>
-          </div>
-
-          <div>
-            {(incomeData).map((income: any) => {
-              return <p>{income.income_title}</p>;
-            })}
           </div>
 
           <DataTable columns={incomeColumn} data={incomeData} />
