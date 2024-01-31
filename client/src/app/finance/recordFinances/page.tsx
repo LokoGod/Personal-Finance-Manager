@@ -42,17 +42,6 @@ async function getIncomeData(): Promise<IncomeColumnType[]> {
 
 const RecordFinances = async () => {
   const incomeData = await getIncomeData();
-  
-  async function logIncomeData() {
-    try {
-      const incomeData = await getIncomeData();
-      console.log(incomeData);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-logIncomeData();
 
   return (
     <div>
