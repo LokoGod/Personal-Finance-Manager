@@ -31,7 +31,7 @@ import {
 } from "@/components/tables/dataTables/finance/incomeTable/incomeColumn";
 
 async function getIncomeData(): Promise<IncomeColumnType[]> {
-  const response = await fetch("http://localhost:5000/api/v1/income/", { next: { revalidate: 3600 } });
+  const response = await fetch("https://demo-api-4n3l.onrender.com/api/v1/income/", { next: { revalidate: 3600 } });
 
   if (!response.ok) {
     throw new Error("failed to fetch data");
