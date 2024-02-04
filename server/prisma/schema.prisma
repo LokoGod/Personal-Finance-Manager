@@ -15,8 +15,9 @@ model Income {
   id            Int            @id @default(autoincrement())
   income_title  String
   income_amount Float
-  // recurring Boolean
-  received_date DateTime       @default(now())
+  recurring     Boolean        @default(false)
+  received_date DateTime?      @default(now())
+  receving_date DateTime?
   category      IncomeCategory @relation(fields: [categoryId], references: [id])
   categoryId    Int
 }
