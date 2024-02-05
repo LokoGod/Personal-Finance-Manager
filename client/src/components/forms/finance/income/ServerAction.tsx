@@ -7,7 +7,7 @@ export async function action() {
   );
 
   if (!response.ok) {
-    throw new Error("failed to fetch data");
+    throw new Error("failed to get data");
   }
   const data = await response.json();
   return data.income;
