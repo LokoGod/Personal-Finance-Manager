@@ -3,7 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
+import axios from "axios";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -25,14 +26,19 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+} from "@/components/ui/card";
 import { DatePickerDemo } from "../../DatePicker";
 
 const formSchema = z.object({
-  incomeTitle: z.string().min(2, {
+  income_title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
-  incomeCategory: z.string({
+  income_category: z.string({
     required_error: "Please select a category!",
   }),
   recurringIncome: z.boolean().default(false).optional(),
@@ -40,20 +46,29 @@ const formSchema = z.object({
 });
 
 export function AddIncomeForm() {
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      incomeTitle: "",
-      incomeCategory: "",
+      income_title: "",
+      income_category: "",
     },
   });
 
-
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  async function onSubmit(values: z.infer<typeof formSchema>, event: any) {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "https://demo-api-4n3l.onrender.com/api/v1/income",
+        values
+      );
+      console.log(response);
+    } catch (error) {
+      console.error("Create req failed", error);
+    }
     console.log(values);
   }
 
@@ -61,7 +76,9 @@ export function AddIncomeForm() {
     <div className="">
       <Card>
         <CardHeader>
-          <CardDescription>Enter the details of the recieved income</CardDescription>
+          <CardDescription>
+            Enter the details of the recieved income
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -69,12 +86,15 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="incomeTitle"
+                  name="income_title"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Title</FormLabel>
                       <FormControl>
-                        <Input placeholder="Shoping discount surplus" {...field} />
+                        <Input
+                          placeholder="Shoping discount surplus"
+                          {...field}
+                        />
                       </FormControl>
                       <FormDescription>
                         Explain the income breifly.
@@ -87,14 +107,17 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="incomeCategory"
+                  name="income_category"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Category</FormLabel>
                       <FormControl>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
                           <SelectTrigger className="">
-                            <SelectValue placeholder="Theme" />
+                            <SelectValue placeholder="Select" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="light">Light</SelectItem>
@@ -119,8 +142,11 @@ export function AddIncomeForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Reccuring ?</FormLabel>
-                      <FormControl className="flex">                     
-                        <Switch checked={field.value} onCheckedChange={field.onChange} />                  
+                      <FormControl className="flex">
+                        <Switch
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
                       </FormControl>
                       <FormDescription>
                         Tick if the income will keep happening
@@ -140,7 +166,7 @@ export function AddIncomeForm() {
                       <FormLabel>Set future date ?</FormLabel>
                       <FormControl className="flex">
                         <div>
-                        <DatePickerDemo field={field} />
+                          <DatePickerDemo field={field} />
                         </div>
                       </FormControl>
                       <FormMessage />
