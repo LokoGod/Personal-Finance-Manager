@@ -38,7 +38,10 @@ const formSchema = z.object({
   income_title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
-  income_category: z.string({
+  income_amount: z.string().min(2, {
+    message: "Amount must be at least 2 digits.",
+  }).optional(),
+  category: z.string({
     required_error: "Please select a category!",
   }),
   recurringIncome: z.boolean().default(false).optional(),
@@ -52,7 +55,8 @@ export function AddIncomeForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       income_title: "",
-      income_category: "",
+      category: "",
+      income_amount: "",
     },
   });
 
@@ -107,7 +111,28 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="income_category"
+                  name="income_amount"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Amount</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Rs."
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Add the amount
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className="">
+                <FormField
+                  control={form.control}
+                  name="category"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Category</FormLabel>
