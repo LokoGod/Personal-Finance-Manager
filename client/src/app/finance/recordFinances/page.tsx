@@ -3,18 +3,12 @@ import Link from "next/link";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  Card
 } from "@/components/ui/card";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
+  BreadcrumbLink
 } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 
@@ -22,8 +16,6 @@ import { IoIosAdd } from "react-icons/io";
 import { IoChevronForward } from "react-icons/io5";
 import { FaHouseChimney } from "react-icons/fa6";
 
-import RecurringIncome from "@/components/tables/normalTables/finance/income/RecurringIncome";
-import ReportedIncome from "@/components/tables/normalTables/finance/income/ReportedIncome";
 import { DataTable } from "@/components/tables/dataTables/finance/incomeTable/incomeDataTable";
 import {
   IncomeColumnType,
