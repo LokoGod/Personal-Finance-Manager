@@ -12,20 +12,13 @@ datasource db {
 }
 
 model Income {
-  id            Int            @id @default(autoincrement())
-  income_title  String
-  income_amount Float
-  recurring     Boolean        @default(false)
-  received_date DateTime?      @default(now())
-  receving_date DateTime?
-  category      IncomeCategory @relation(fields: [categoryId], references: [id])
-  categoryId    Int
-}
-
-model IncomeCategory {
-  id         Int      @id @default(autoincrement())
-  income_cat String
-  income     Income[]
+  id              Int       @id @default(autoincrement())
+  income_title    String
+  income_amount   Float
+  income_category String
+  recurring       Boolean   @default(false)
+  received_date   DateTime? @default(now())
+  receving_date   DateTime?
 }
 
 model Expense {

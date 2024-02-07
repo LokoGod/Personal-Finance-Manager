@@ -5,7 +5,6 @@ import "dotenv/config";
 
 // Import custom routes
 import { incomeRoutes } from "./routes/income/incomeRoutes";
-import { incomeCategoryRoutes } from "./routes/income/incomeCategoryRoutes";
 
 // Instances
 const app = express();
@@ -16,7 +15,6 @@ app.use(cors());
 
 // API routing
 app.use("/api/v1/income", incomeRoutes);
-app.use("/api/v1/incomeCategories", incomeCategoryRoutes)
 
 const port = process.env.PORT || 9000;
 

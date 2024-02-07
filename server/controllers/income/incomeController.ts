@@ -12,12 +12,21 @@ const allRecordedIncome = async (req: any, res: any) => {
 
 const createIncome = async (req: any, res: any) => {
   try {
-    const { income_title, income_amount, received_date, categoryId } = req.body;
+    const {
+      income_title,
+      income_amount,
+      income_category,
+      recurring,
+      received_date,
+      receving_date,
+    } = req.body;
     const income = await incomeRepository.postIncome(
       income_title,
       income_amount,
+      income_category,
+      recurring,
       received_date,
-      categoryId
+      receving_date
     );
     res.status(201).json({ income });
   } catch (error) {

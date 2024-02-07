@@ -45,7 +45,7 @@ export const incomeColumn: ColumnDef<IncomeColumnType>[] = [
     },
   },
   {
-    accessorKey: "category.income_cat",
+    accessorKey: "income_category",
     header: ({ column }) => {
       return (
         <div className="">

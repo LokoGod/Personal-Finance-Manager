@@ -38,14 +38,14 @@ const formSchema = z.object({
   income_title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
-  income_amount: z.string().min(2, {
+  income_amount: z.coerce.number().gte(10, {
     message: "Amount must be at least 2 digits.",
-  }).optional(),
-  category: z.string({
+  }),
+  income_category: z.string({
     required_error: "Please select a category!",
   }),
-  recurringIncome: z.boolean().default(false).optional(),
-  setReceivingDate: z.date().optional(),
+  recurring: z.boolean().default(false).optional(),
+  receving_date: z.date().optional(),
 });
 
 export function AddIncomeForm() {
@@ -55,8 +55,7 @@ export function AddIncomeForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       income_title: "",
-      category: "",
-      income_amount: "",
+      income_category: "",
     },
   });
 
@@ -66,7 +65,7 @@ export function AddIncomeForm() {
 
     try {
       const response = await axios.post(
-        "https://demo-api-4n3l.onrender.com/api/v1/income",
+        "http://localhost:5000/api/v1/income",
         values
       );
       console.log(response);
@@ -118,6 +117,7 @@ export function AddIncomeForm() {
                       <FormControl>
                         <Input
                           placeholder="Rs."
+                          type="number"
                           {...field}
                         />
                       </FormControl>
@@ -132,7 +132,7 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="category"
+                  name="income_category"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Category</FormLabel>
@@ -145,9 +145,9 @@ export function AddIncomeForm() {
                             <SelectValue placeholder="Select" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="light">Light</SelectItem>
-                            <SelectItem value="dark">Dark</SelectItem>
-                            <SelectItem value="system">System</SelectItem>
+                            <SelectItem value="Light">Light</SelectItem>
+                            <SelectItem value="Dark">Dark</SelectItem>
+                            <SelectItem value="System">System</SelectItem>
                           </SelectContent>
                         </Select>
                       </FormControl>
@@ -163,7 +163,7 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="recurringIncome"
+                  name="recurring"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Reccuring ?</FormLabel>
@@ -185,7 +185,7 @@ export function AddIncomeForm() {
               <div className="">
                 <FormField
                   control={form.control}
-                  name="setReceivingDate"
+                  name="receving_date"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Set future date ?</FormLabel>
